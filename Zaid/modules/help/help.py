@@ -17,7 +17,7 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
-@Client.on_message(filters.command(["help", "helpme"], ".") & filters.me)
+@Client.on_message(filters.command(["مساعدة", "مساعده"], ".") & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -25,7 +25,7 @@ async def module_help(client: Client, message: Message):
     if len(cmd) > 1:
         help_arg = " ".join(cmd[1:])
     elif not message.reply_to_message and len(cmd) == 1:
-        await message.edit("⚡️")
+        await message.edit("انتظر قليلًا لأساعدك")
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="helper")
             await asyncio.gather(
@@ -38,17 +38,17 @@ async def module_help(client: Client, message: Message):
             print(f"{e}")
             ac = PrettyTable()
             ac.header = False
-            ac.title = "Zaid-UserBot Plugins"
+            ac.title = "Rickthon-UserBot Plugins"
             ac.align = "l"
             for x in split_list(sorted(CMD_HELP.keys()), 2):
                 ac.add_row([x[0], x[1] if len(x) >= 2 else None])
             xx = await client.send_message(
                 message.chat.id,
-                f"```{str(ac)}```\n• @TheSupportChat × @TheUpdatesChannel •",
+                f"```{str(ac)}```\n• @Rickthon_Support × @Rickthon - @S_Z_H - @PPF22 •",
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
-                f"**Usage:** `.help broadcast` **To View Module Information**"
+                f"**إستعمال:** `.مساعدة البث` **لعرض معلومات الوحدة**"
             )
             return
 
@@ -57,8 +57,8 @@ async def module_help(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @TheUpdatesChannel"
+                this_command += f"  •  **الأمر:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+            this_command += "© @Rickthon - @PPF22 - @S_Z_H"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -85,10 +85,10 @@ async def module_helper(client: Client, message: Message):
         for x in split_list(sorted(CMD_HELP.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
         await edit_or_reply(
-            message, f"```{str(ac)}```\n• @TheSupportChat × @TheUpdatesChannel •"
+            message, f"```{str(ac)}```\n• @Rickthon_Support × @Rickthon •"
         )
         await message.reply(
-            f"**Usage**:`.help broadcast` **To View Module details**"
+            f"**إستعمال**:`.مساعدة البث` **لعرض تفاصيل الوحدة**"
         )
 
     if help_arg:
@@ -96,15 +96,15 @@ async def module_helper(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @TheUpdatesChannel"
+                this_command += f"  •  **الأمر:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+            this_command += "© @Rickthon"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
         else:
             await edit_or_reply(
                 message,
-                f"`{help_arg}` **Not a Valid Module Name.**",
+                f"`{help_arg}` **اسم وحدة غير صالح.**",
             )
 
 
@@ -120,3 +120,4 @@ def add_command_help(module_name, commands):
                 command_dict[x[0]] = x[1]
 
     CMD_HELP[module_name] = command_dict
+#الملف معرب من @PPF22
