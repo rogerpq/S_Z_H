@@ -50,15 +50,15 @@ async def get_readable_time(seconds: int) -> str:
 async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = f"""
-<b> — Hey, I am alive.</b>
+<b> — سورس ريك ثون يعمل بنجاح.</b>
 
-<b> • User :</b> {message.from_user.mention}
-<b> • Plugins :</b> <code>{len(CMD_HELP)} Modules</code>
-<b> • Python Version :</b> <code>{pyver.split()[0]}</code>
-<b> • Pyrogram Version :</b> <code>{pyrover}</code>
-<b> • Bot Uptime :</b> <code>{uptime}</code>
+<b> • اليوزر الخاص بك :</b> {message.from_user.mention}
+<b> • الإضافات :</b> <code>{len(CMD_HELP)} Modules</code>
+<b> • إصدار بايثون :</b> <code>{pyver.split()[0]}</code>
+<b> • إصدار بايروجرام :</b> <code>{pyrover}</code>
+<b> • مدة التشغيل :</b> <code>{uptime}</code>
 
-<b> — Bot version: 2.0</b>
+<b> — إصدار السورس: 2.0</b>
 """
     answers.append(
         InlineQueryResultArticle(
@@ -69,7 +69,7 @@ async def alive_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("──「 ʜᴇʟᴘ 」──", callback_data="helper")]]
+                [[InlineKeyboardButton("──「 Rickthon 」──", callback_data="helper")]]
             ),
         )
     )
@@ -110,3 +110,4 @@ async def inline_query_handler(client: Client, query):
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
+#هذا الملف تم تعريبه من @PPF22
