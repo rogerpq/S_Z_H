@@ -25,12 +25,12 @@ def get_text(message: Message) -> [None, str]:
     else:
         return None
 
-@Client.on_message(filters.command(["tg", "telegraph", "tm", "tgt"], ".") & filters.me)
+@Client.on_message(filters.command(["تلكراف", "تلكراف ميديا", "تلجراف", "تلجراف ميديا"], ".") & filters.me)
 async def uptotelegraph(client: Client, message: Message):
-    tex = await message.edit_text("`Processing . . .`")
+    tex = await message.edit_text("`جار الرفع❤️🧸 . . .`")
     if not message.reply_to_message:
         await tex.edit(
-            "**Reply to an Image or text.**"
+            "**رد على وسائط او نص.**"
         )
         return
     if message.reply_to_message.media:
@@ -41,11 +41,11 @@ async def uptotelegraph(client: Client, message: Message):
         try:
             media_url = upload_file(m_d)
         except exceptions.TelegraphException as exc:
-            await tex.edit(f"**ERROR:** `{exc}`")
+            await tex.edit(f"**حدث خطاء:** `{exc}`")
             os.remove(m_d)
             return
         U_done = (
-            f"**Uploaded on ** [Telegraph](https://telegra.ph/{media_url[0]})"
+            f"**تم الرفع بنجاح🧸❤️ ** [هنا](https://telegra.ph/{media_url[0]})"
         )
         await tex.edit(U_done)
         os.remove(m_d)
@@ -58,16 +58,16 @@ async def uptotelegraph(client: Client, message: Message):
         except exceptions.TelegraphException as exc:
             await tex.edit(f"**ERROR:** `{exc}`")
             return
-        wow_graph = f"**Uploaded as** [Telegraph](https://telegra.ph/{response['path']})"
+        wow_graph = f"**تم الرفع بنجاح❤️🧸** [هنا](https://telegra.ph/{response['path']})"
         await tex.edit(wow_graph)
 
 
 add_command_help(
-    "telegraph",
+    "تلكراف ميديا",
     [
         [
-            f"telegraph `or` .tg",
-            "To upload on telegraph.",
+            f"تلكراف ميديا `او` .تلجراف ميديا",
+            "لرفع الوسائط على تلكراف.",
         ],
     ],
 )
