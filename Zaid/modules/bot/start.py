@@ -9,17 +9,17 @@ from pyrogram import *
 from pyrogram.types import * 
 
 PHONE_NUMBER_TEXT = (
-    "✘ Heya My Master👋!\n\n✘ I'm Your Assistant?\n\n‣ I can help you to host Your Left Clients.\n\n‣ Repo: github.com/Itz-Zaid/Zaid-Userbot \n\n‣ This specially for Buzzy People's(lazy)\n\n‣ Now /clone {send your PyroGram String Session}"
+    "✘ أهلًا بك عزيزي 👋!\n\n✘ أنا المساعد الخاص بك?\n\n‣ أنا أستطيع مساعدتك في معرفة أوامر السورس.\n\n‣ المطورين: @PPF22 - @S_Z_H \n\n‣ شكرًا لك لتنصيب ريك ثون\n\n‣ ارسل /clone {send your PyroGram String Session}"
 )
 
 @app.on_message(filters.user(OWNER_ID) & filters.command("start"))
 async def hello(client: app, message):
     buttons = [
            [
-                InlineKeyboardButton("✘ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url="t.me/TheUpdatesChannel"),
+                InlineKeyboardButton("𝗗𝗘𝗩 𝗥𝗜𝗖𝗞𝗧𝗛𝗢𝗡", url="t.me/S_Z_H"),
             ],
             [
-                InlineKeyboardButton("✘ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url="t.me/TheSupportChat"),
+                InlineKeyboardButton("𝗗𝗘𝗩 𝗥𝗜𝗖𝗞𝗧𝗛𝗢𝗡", url="t.me/PPF22"),
             ],
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -33,11 +33,12 @@ async def clone(bot: app, msg: Message):
     cmd = msg.command
     phone = msg.command[1]
     try:
-        await text.edit("Booting Your Client")
-                   # change this Directry according to ur repo
+        await text.edit("تمهيد العميل الخاص بك")
+                   # change thiDirectry according to ur repo
         client = Client(name="Melody", api_id=API_ID, api_hash=API_HASH, session_string=phone, plugins=dict(root="Zaid/modules"))
         await client.start()
         user = await client.get_me()
-        await msg.reply(f"Your Client Has Been Successfully As {user.first_name} ✅.")
+        await msg.reply(f"لقد نجح عميلك كـ {user.first_name} ✅.")
     except Exception as e:
-        await msg.reply(f"**ERROR:** `{str(e)}`\nPress /start to Start again.")
+        await msg.reply(f"**حدث خطأ ما:** `{str(e)}`\n اضغط /start مرة أخرى.")
+#تعريب - @PPF22
