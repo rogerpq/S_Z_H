@@ -7,21 +7,21 @@ from Zaid import SUDO_USER
 
 
 _SCRTXT = """
-**✅ CC Scrapped Successfully!**
+**✅ تم إلغاء CC بنجاح!**
 
-**Source ->** {}
-**Amount ->** {}
-**Skipped ->** {}
-**Cc Found ->** {}
+**سورس ->** {}
+**كمية ->** {}
+**تم تخطي ->** {}
+**تم وجودCc ->** {}
 
 
-🥷 **Scrapped By ->** {}
-👨‍🎤 **Developed By ->** @TheUpdatesChannel 🐲
+🥷 **ألغيت بواسطة ->** {}
+👨‍🎤 **المساعدة ->** @Rickthon_Support 🐲
 """
 
 
 @Client.on_message(
-    filters.command(["scrape"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["كشط"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def cc_scraper(c, m):
     txt = ""
