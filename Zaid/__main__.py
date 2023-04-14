@@ -10,13 +10,13 @@ async def start_bot():
     print("جار انشاء التوكن")
     for all_module in ALL_MODULES:
         importlib.import_module("Zaid.modules" + all_module)
-        print(f"تم تحميل مكتبه : {all_module} 💥")
+        print(f"تم التحميل : {all_module} 💥")
     for cli in clients:
         try:
             await cli.start()
             ex = await cli.get_me()
             await join(cli)
-            print(f"تم العمل {ex.first_name} 🔥")
+            print(f"جار البدء {ex.first_name} 🔥")
             ids.append(ex.id)
         except Exception as e:
             print(f"{e}")
