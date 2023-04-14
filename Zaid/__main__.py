@@ -7,7 +7,7 @@ from Zaid import clients, app, ids
 
 async def start_bot():
     await app.start()
-    print("جار انشاء التوكن")
+    print("جار فحص التوكن")
     for all_module in ALL_MODULES:
         importlib.import_module("Zaid.modules" + all_module)
         print(f"تم التحميل : {all_module} 💥")
