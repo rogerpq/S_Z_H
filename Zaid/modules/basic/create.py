@@ -26,7 +26,7 @@ async def create(client: Client, message: Message):
         _id = await client.create_channel(group_name, desc)
         link = await client.get_chat(_id["id"])
         await xd.edit(
-            f"**تم انشاء القناة ينجاح : [{group_name}]({link['invite_link']})**",
+            f"**تم انشاء القناة بنجاح : [{group_name}]({link['invite_link']})**",
             disable_web_page_preview=True,
         )
 
