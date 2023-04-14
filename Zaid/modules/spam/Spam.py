@@ -10,7 +10,7 @@ from Zaid import SUDO_USER
 
 from Zaid.modules.help import add_command_help
 
-commands = ["spam", "statspam", "slowspam", "fastspam"]
+commands = ["تكرار", "حالة السيام", "تكرار بطيء", "تكرار سريع"]
 SPAM_COUNT = [0]
 
 BLACKLIST_CHAT = []
@@ -41,13 +41,13 @@ async def extract_args(message, markdown=True):
     return text
 
 @Client.on_message(
-    filters.command(["dspam", "delayspam"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["تأخير التكرار", "تاخير التكرار"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 
 async def delayspam(client: Client, message: Message):
     if message.chat.id in BLACKLIST_CHAT:
         return await message.reply_text(
-            "**This command is not allowed to be used in this group**"
+            "**عذرًا عزيزي هذا الأمر يستخدم في المجموعات فقط .**"
         )
     delayspam = await extract_args(message)
     arr = delayspam.split()
