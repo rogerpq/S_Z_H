@@ -9,8 +9,8 @@
             "description": "fill with the telethon session string from https://replit.com/@Itz-zaid/Generator",
             "required": true
         },
-        "MONGO_URL": {
-            "description": "Fill there an mongo database from mongodb.com",
+        "DATABASE_URL": {
+            "description": "Fill there an elephant database from elephantsql.com",
             "required": true,
             "value": ""
         },
