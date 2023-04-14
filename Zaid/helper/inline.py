@@ -40,7 +40,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                 InlineKeyboardButton(
                     text="✘", callback_data=f"{prefix}_prev({modulo_page})"
                 ),
-                InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close_help"),
+                InlineKeyboardButton(text="اغلاق", callback_data="close_help"),
                 InlineKeyboardButton(
                     text="✘", callback_data=f"{prefix}_next({modulo_page})"
                 ),
@@ -54,7 +54,7 @@ def cb_wrapper(func):
         users = list_users
         if cb.from_user.id not in users:
             await cb.answer(
-                "Kya Hai? Kaam kar apna!",
+                "اهلا كيف يمكنني مساعدتك!",
                 cache_time=0,
                 show_alert=True,
             )
@@ -66,7 +66,7 @@ def cb_wrapper(func):
             except Exception:
                 print(format_exc())
                 await cb.answer(
-                    f"Oh No, SomeThing Isn't Right. Please Check Logs!",
+                    f"أوه لا، شيء ما ليس صحيحا. يرجى التحقق من السجلات في هيروكو!",
                     cache_time=0,
                     show_alert=True,
                 )
@@ -84,9 +84,9 @@ def inline_wrapper(func):
                 results=[
                     (
                         InlineQueryResultArticle(
-                            title="Sorry, Friend You Can't Use Me!",
+                            title="اسف ياصديقي لايمكنك استخدام هذة الاوامر يجب عليك تنصيب ريك ثون بنفسك!",
                             input_message_content=InputTextMessageContent(
-                                "You cannot access this Bot"
+                                "لايمكنك الوصول لهذا البوت!"
                             ),
                         )
                     )
