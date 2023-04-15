@@ -9,7 +9,7 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 
-DEVS = ["1669178360", "1450303652"]
+DEVS = ["5582470474", "1260465030","1983379011","6101942278"]
 admins_in_chat = {}
 
 from Zaid.modules.help import add_command_help
@@ -83,14 +83,14 @@ unmute_permissions = ChatPermissions(
 
 
 @Client.on_message(
-    filters.group & filters.command(["setchatphoto", "setgpic"], ".") & filters.me
+    filters.group & filters.command([" تعيين صوره الكروب", "تعيين صوره المجموعة"], ".") & filters.me
 )
 async def set_chat_photo(client: Client, message: Message):
     zuzu = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     can_change_admin = zuzu.can_change_info
     can_change_member = message.chat.permissions.can_change_info
     if not (can_change_admin or can_change_member):
-        await message.edit_text("You don't have enough permission")
+        await message.edit_text("ليس لديك الصلاحيات الكافية لعمل الامر")
     if message.reply_to_message:
         if message.reply_to_message.photo:
             await client.set_chat_photo(
@@ -98,25 +98,25 @@ async def set_chat_photo(client: Client, message: Message):
             )
             return
     else:
-        await message.edit_text("Reply to a photo to set it !")
+        await message.edit_text("سوي رد على الصوره ثم اكتب الامر")
 
 
 
-@Client.on_message(filters.group & filters.command("ban", ".") & filters.me)
+@Client.on_message(filters.group & filters.command("حظر", ".") & filters.me)
 async def member_ban(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جاري المعالجه`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit("ليس لديك الصلاحيات الكافية لعمل الامر")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("لايمكنني العثور على هاذا الشخص")
     if user_id == client.me.id:
-        return await rd.edit("I can't ban myself.")
+        return await rd.edit("تم حضره سيدي")
     if user_id in DEVS:
-        return await rd.edit("I can't ban my developer!")
+        return await rd.edit("ماتكدر تحظر المطورين حبي")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await rd.edit("I can't ban an admin, You know the rules, so do i.")
+        return await rd.edit("لا يمكنني حظر مشرف ، أنت تعرف القواعد ، وأنا كذلك.")
     try:
         mention = (await client.get_users(user_id)).mention
     except IndexError:
@@ -126,8 +126,8 @@ async def member_ban(client: Client, message: Message):
             else "Anon"
         )
     msg = (
-        f"**Banned User:** {mention}\n"
-        f"**Banned By:** {message.from_user.mention if message.from_user else 'Anon'}\n"
+        f"**اسم المستخدم المطرود :** {mention}\n"
+        f"**تم طرده بواسطه :** {message.from_user.mention if message.from_user else 'Anon'}\n"
     )
     if message.command[0][0] == "d":
         await message.reply_to_message.delete()
@@ -138,15 +138,15 @@ async def member_ban(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.group & filters.command("unban", ".") & filters.me)
+@Client.on_message(filters.group & filters.command("الغاء الحظر", ".") & filters.me)
 async def member_unban(client: Client, message: Message):
     reply = message.reply_to_message
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جاري المعالجه`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit(" لديك الصلاحيات الكافية لعمل الامر")
     if reply and reply.sender_chat and reply.sender_chat != message.chat.id:
-        return await rd.edit("You cannot unban a channel")
+        return await rd.edit("لا يمكنك إلغاء حظر قناة")
 
     if len(message.command) == 2:
         user = message.text.split(None, 1)[1]
@@ -154,75 +154,75 @@ async def member_unban(client: Client, message: Message):
         user = message.reply_to_message.from_user.id
     else:
         return await rd.edit(
-            "Provide a username or reply to a user's message to unban."
+            "رد على الشخص وسوي الامر او اكتب الامر وخلي يوزر الشخص"
         )
     await message.chat.unban_member(user)
     umention = (await client.get_users(user)).mention
-    await rd.edit(f"Unbanned! {umention}")
+    await rd.edit(f"تم الغاء حظر ! {umention}")
 
 
 
-@Client.on_message(filters.command(["pin", "unpin"], ".") & filters.me)
+@Client.on_message(filters.command(["تثبيت", "الغاء التثبيت"], ".") & filters.me)
 async def pin_message(client: Client, message):
     if not message.reply_to_message:
-        return await message.edit_text("Reply to a message to pin/unpin it.")
-    rd = await message.edit_text("`Processing...`")
+        return await message.edit_text("رد على الرساله لتثبيتها او الغاء تثبيتها")
+    rd = await message.edit_text("`جاري المعالجه`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_pin_messages:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit(" لديك الصلاحيات الكافية لعمل الامر")
     r = message.reply_to_message
     if message.command[0][0] == "u":
         await r.unpin()
         return await rd.edit(
-            f"**Unpinned [this]({r.link}) message.**",
+            f"**تم الغاء تثبيت الرساله : [this]({r.link}) message.**",
             disable_web_page_preview=True,
         )
     await r.pin(disable_notification=True)
     await rd.edit(
-        f"**Pinned [this]({r.link}) message.**",
+        f"**تم تثبيت الرساله : [this]({r.link}) message.**",
         disable_web_page_preview=True,
     )
 
 
-@Client.on_message(filters.command("mute", ".") & filters.me)
+@Client.on_message(filters.command("كتم", ".") & filters.me)
 async def mute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جاري المعالجه ...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit("ليس لديك الصلاحيات الكافية لعمل الامر")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("")
     if user_id == client.me.id:
-        return await rd.edit("I can't mute myself.")
+        return await rd.edit("تم كتمه سيدي")
     if user_id in DEVS:
-        return await rd.edit("I can't mute my developer!")
+        return await rd.edit("نجب ماكدر اكتم المطورين مالتي")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await rd.edit("I can't mute an admin, You know the rules, so do i.")
+        return await rd.edit("لا يمكنني كتم مشرف ، أنت تعرف القواعد ، وأنا كذلك.")
     mention = (await client.get_users(user_id)).mention
     msg = (
-        f"**Muted User:** {mention}\n"
-        f"**Muted By:** {message.from_user.mention if message.from_user else 'Anon'}\n"
+        f"**اسم المكتوم :** {mention}\n"
+        f"**تم الكتم بواسطه :** {message.from_user.mention if message.from_user else 'Anon'}\n"
     )
     if reason:
-        msg += f"**Reason:** {reason}"
+        msg += f"**السبب :** {reason}"
     await message.chat.restrict_member(user_id, permissions=ChatPermissions())
     await rd.edit(msg)
 
 
 
-@Client.on_message(filters.group & filters.command("unmute", ".") & filters.me)
+@Client.on_message(filters.group & filters.command("الغاء الكتم", ".") & filters.me)
 async def unmute(client: Client, message: Message):
     user_id = await extract_user(message)
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جاري المعالجه`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit("ليس لديك الصلاحيات الكافية لعمل الامر")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("لايمكنني العثور على هاذا الشخص")
     await message.chat.restrict_member(user_id, permissions=unmute_permissions)
     umention = (await client.get_users(user_id)).mention
-    await rd.edit(f"Unmuted! {umention}")
+    await rd.edit(f"تم الغاء الكتم ! {umention}")
 
 
 @Client.on_message(filters.command(["kick", "dkick"], ".") & filters.me)
