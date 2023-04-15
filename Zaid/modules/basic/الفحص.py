@@ -11,24 +11,24 @@ from Zaid.helper.PyroHelpers import ReplyCheck
 from Zaid.modules.help import add_command_help
 from Zaid.modules.bot.inline import get_readable_time
 
-alive_logo = ALIVE_PIC or "https://telegra.ph/file/cc0890d0876bc18c19e05.jpg"
+alive_logo = ALIVE_PIC or "https://telegra.ph//file/6ef37b30de52ad0a6f8ee.mp4"
 
 if ALIVE_TEXT:
    txt = ALIVE_TEXT
 else:
     txt = (
-        f"** ✘ zαι∂ υѕєявσт ✘**\n\n"
-        f"❏ **νєяѕισи**: `2.1`\n"
+        f"** ✘ ʀɪᴄᴋᴛʜᴏɴ υѕєявσт ✘**\n\n"
+        f"❏ **νєяѕισи**: `1.0`\n"
         f"├• **υρтιмє**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
         f"├• **ρутнσи**: `{python_version()}`\n"
         f"├• **ρуяσgяαм**: `{__version__}`\n"
-        f"├• **ѕυρρσят**: [Click](t.me/TheSupportChat)\n"
-        f"├• **¢нαииєℓ**: [Click](t.me/TheUpdatesChannel)\n"
-        f"└• **яєρσ**: [Click](https://GitHub.com/itz-zaid/Zaid-Userbot)"        
+        f"├• **ѕυρρσят**: [Click](t.me/rickthon_group)\n"
+        f"├• **¢нαииєℓ**: [Click](t.me/rickthon)\n"
+        f"└• **яєρσ**: [Click](https://GitHub.com/rick1128/S_Z_H)"        
     )
 
 @Client.on_message(
-    filters.command(["alive", "awake"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["فحص", "ايقظ"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def alive(client: Client, message: Message):
     xx = await message.reply_text("⚡️")
@@ -51,28 +51,28 @@ async def alive(client: Client, message: Message):
     except BaseException:
         await xx.edit(xd, disable_web_page_preview=True)
 
-@Client.on_message(filters.command("repo", ".") & filters.me)
+@Client.on_message(filters.command("الريبو", ".") & filters.me)
 async def repo(bot: Client, message: Message):
     await message.edit("⚡")
     await asyncio.sleep(1)
     await message.edit("Fetching Source Code.....")
     await asyncio.sleep(1)
-    await message.edit("Here is repo: \n\n\nhttps://github.com/itz-zaid/Zaid-UserBot\nFork & Give an ⭐")
+    await message.edit("Here is repo: \n\n\nhttps://github.com/rick1128/S_Z_H\nFork & Give an ⭐")
 
 
-@Client.on_message(filters.command("creator", ".") & filters.me)
+@Client.on_message(filters.command("المطور", ".") & filters.me)
 async def creator(bot: Client, message: Message):
-    await message.edit("https://gitHub.com/itz-zaid")
+    await message.edit("**The best! \n @S_Z_H**")
 
 
-@Client.on_message(filters.command(["uptime", "up"], ".") & filters.me)
+@Client.on_message(filters.command(["مدة التشغيل", "up"], ".") & filters.me)
 async def uptime(bot: Client, message: Message):
     now = datetime.now()
     current_uptime = now - START_TIME
     await message.edit(f"Uptime ⚡\n" f"```{str(current_uptime).split('.')[0]}```")
 
 
-@Client.on_message(filters.command("id", ".") & filters.me)
+@Client.on_message(filters.command("ايديي", ".") & filters.me)
 async def get_id(bot: Client, message: Message):
     file_id = None
     user_id = None
@@ -81,22 +81,22 @@ async def get_id(bot: Client, message: Message):
         rep = message.reply_to_message
 
         if rep.audio:
-            file_id = f"**File ID**: `{rep.audio.file_id}`"
-            file_id += "**File Type**: `audio`"
+            file_id = f"**فايل ايدي**: `{rep.audio.file_id}`"
+            file_id += "**نوع الفايل**: `audio`"
 
         elif rep.document:
-            file_id = f"**File ID**: `{rep.document.file_id}`"
-            file_id += f"**File Type**: `{rep.document.mime_type}`"
+            file_id = f"**ايدي الفايل**: `{rep.document.file_id}`"
+            file_id += f"**نوع الفايل**: `{rep.document.mime_type}`"
 
         elif rep.photo:
-            file_id = f"**File ID**: `{rep.photo.file_id}`"
-            file_id += "**File Type**: `photo`"
+            file_id = f"**ايدي الفايل**: `{rep.photo.file_id}`"
+            file_id += "**نوع الفايل**: `photo`"
 
         elif rep.sticker:
-            file_id = f"**Sicker ID**: `{rep.sticker.file_id}`\n"
+            file_id = f"**ايدي الستيكر**: `{rep.sticker.file_id}`\n"
             if rep.sticker.set_name and rep.sticker.emoji:
-                file_id += f"**Sticker Set**: `{rep.sticker.set_name}`\n"
-                file_id += f"**Sticker Emoji**: `{rep.sticker.emoji}`\n"
+                file_id += f"**ضع ستيكر**: `{rep.sticker.set_name}`\n"
+                file_id += f"**ستيكر ايموجي**: `{rep.sticker.emoji}`\n"
                 if rep.sticker.is_animated:
                     file_id += f"**Animated Sticker**: `{rep.sticker.is_animated}`\n"
                 else:
