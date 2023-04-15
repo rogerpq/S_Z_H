@@ -1,3 +1,4 @@
+#Dragon
 import requests
 from bs4 import BeautifulSoup
 from googlesearch import search
@@ -30,16 +31,16 @@ def googlesearch(query):
     return returnquery
 
 
-@Client.on_message(filters.command(["gs", "google"], ".") & filters.me)
+@Client.on_message(filters.command(["كوكل"], ".") & filters.me)
 async def gs(client: Client, message: Message):
-    Man = await edit_or_reply(message, "`Processing...`")
+    Man = await edit_or_reply(message, "`جارٍ المعالجة .`")
     msg_txt = message.text
     returnmsg = ""
     query = None
     if " " in msg_txt:
         query = msg_txt[msg_txt.index(" ") + 1 : len(msg_txt)]
     else:
-        await Man.edit("Give a query to search")
+        await Man.edit("حسناً اعطني ماتريد البحث عنه .")
         return
     results = googlesearch(query)
     for i in range(1, 10, 1):
