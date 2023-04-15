@@ -38,7 +38,7 @@ async def cc_scraper(c, m):
         try:
             limit = int(spl[2].strip())
         except ValueError:
-            return await e3.edit("No. of card to Scrape must be Integer!")
+            return await e3.edit("يجب أن يكون رقم البطاقة المراد كشطها عددًا صحيحًا!")
 
     await e3.edit(f"`Scrapping from {_chat}. \n اكبح جماح نفسك...`")
     _get = lambda m: getattr(m, "text", 0) or getattr(m, "caption", 0)
