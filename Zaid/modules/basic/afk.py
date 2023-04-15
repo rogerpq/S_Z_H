@@ -31,11 +31,11 @@ async def collect_afk_messages(bot: Client, message: Message):
 
         if GetChatID(message) not in CHAT_TYPE:
             text = (
-                f"`Beep boop. This is an automated message.\n"
-                f"I am not available right now.\n"
-                f"Last seen: {last_seen}\n"
-                f"Reason: ```{AFK_REASON.upper()}```\n"
-                f"See you after I'm done doing whatever I'm doing.`"
+                f"`هذهِ الرساله اُرسلت عبر ال UserBot .\n"
+                f"انا لست موجوداً الان\n"
+                f"اخر ضهور كان في : {last_seen}\n ."
+                f"سبب عدم التواجد : ```{AFK_REASON.upper()}```\n"
+                f"اراك بعد ان يأتي مالك الحساب .`"
             )
             await bot.send_message(
                 chat_id=GetChatID(message),
@@ -47,11 +47,11 @@ async def collect_afk_messages(bot: Client, message: Message):
         elif GetChatID(message) in CHAT_TYPE:
             if CHAT_TYPE[GetChatID(message)] == 50:
                 text = (
-                    f"`This is an automated message\n"
-                    f"Last seen: {last_seen}\n"
-                    f"This is the 10th time I've told you I'm AFK right now..\n"
-                    f"I'll get to you when I get to you.\n"
-                    f"No more auto messages for you`"
+                    f"`f"`هذهِ الرساله اُرسلت عبر ال UserBot .\n"\n"
+                    f" اخر ضهور كان في : {last_seen}\n"
+                    f"انته مطي هاي كتلك ١٠ مرات انو اني مامتواجد\n"
+                    f"حين يأتي مالك الحساب سوف يطفيني .\n"
+                    f"لا مزيد من الرسائل التلقائية لك`"
                 )
                 await bot.send_message(
                     chat_id=GetChatID(message),
@@ -62,10 +62,10 @@ async def collect_afk_messages(bot: Client, message: Message):
                 return
             elif CHAT_TYPE[GetChatID(message)] % 5 == 0:
                 text = (
-                    f"`Hey I'm still not back yet.\n"
-                    f"Last seen: {last_seen}\n"
-                    f"Still busy: ```{AFK_REASON.upper()}```\n"
-                    f"Try pinging a bit later.`"
+                    f"`مرحبًا ، ما زلت لم أعود بعد\n"
+                    f"اخر ضهور كان في : {last_seen}\n"
+                    f"لا يزال مشغولا : ```{AFK_REASON.upper()}```\n"
+                    f"حاول التنفيذ مرة اخرى .`"
                 )
                 await bot.send_message(
                     chat_id=GetChatID(message),
