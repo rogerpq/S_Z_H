@@ -17,21 +17,21 @@ if ALIVE_TEXT:
    txt = ALIVE_TEXT
 else:
     txt = (
-        f"** ✘ ʀɪᴄᴋᴛʜᴏɴ υѕєявσт ✘**\n\n"
-        f"❏ **νєяѕισи**: `1.0`\n"
-        f"├• **υρтιмє**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
-        f"├• **ρутнσи**: `{python_version()}`\n"
-        f"├• **ρуяσgяαм**: `{__version__}`\n"
-        f"├• **ѕυρρσят**: [Click](t.me/rickthon_group)\n"
-        f"├• **¢нαииєℓ**: [Click](t.me/rickthon)\n"
-        f"└• **яєρσ**: [Click](https://GitHub.com/rick1128/S_Z_H)"        
+        f"** 𝐑𝐈𝐂𝐊𝐓𝐇𝐎𝐍 𝐈𝐒 𝐖𝐎𝐑𝐊𝐈𝐍𝐆 𝐍𝐎𝐖**\n\n"
+        f"❏ **ꪜꫀ𝘳𝘴𝓲ꪮꪀ ‌♡⁩**: `1.0`\n"
+        f"├• **ꪊρ𝓽𝓲ꪑꫀ 𝘳𝓲ᥴ𝘬𝓽ꫝꪮꪀ メ**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
+        f"├• **ρꪗ𝓽ꫝꪮꪀ**: `{python_version()}`\n"
+        f"├• **ρꪗ𝘳ꪮᧁ𝘳ꪖꪑ**: `{__version__}`\n"
+        f"├• **مجموعة الدعم**: [Click](t.me/rickthon_group)\n"
+        f"├• **𝘳𝓲ᥴ𝘬𝓽ꫝꪮꪀ ᥴꫝ **: [Click](t.me/rickthon)\n"
+        f"└• **𝘿𝙀𝙑𝙎**: [اضغط هنا لرؤية المطورين](https://t.me/DevsRickthon/2)"        
     )
 
 @Client.on_message(
     filters.command(["فحص", "ايقظ"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def alive(client: Client, message: Message):
-    xx = await message.reply_text("⚡️")
+    xx = await message.reply_text("✜| أهلًا بك عزيزي منصب ريك ثون انتظر قليلًا ")
     try:
        await message.delete()
     except:
@@ -51,18 +51,18 @@ async def alive(client: Client, message: Message):
     except BaseException:
         await xx.edit(xd, disable_web_page_preview=True)
 
-@Client.on_message(filters.command("الريبو", ".") & filters.me)
+@Client.on_message(filters.command("ريك ثون", ".") & filters.me)
 async def repo(bot: Client, message: Message):
-    await message.edit("⚡")
+    await message.edit("انتظر قليلًا")
     await asyncio.sleep(1)
-    await message.edit("Fetching Source Code.....")
+    await message.edit("انتظر قليلًا لأريك قناة السورس.....")
     await asyncio.sleep(1)
-    await message.edit("Here is repo: \n\n\nhttps://github.com/rick1128/S_Z_H\nFork & Give an ⭐")
+    await message.edit("هذه هي قناة السورس: \n\n\nhttps://t.me/Rickthon\nالمطور : @PPF22 / @S_Z_H")
 
 
 @Client.on_message(filters.command("المطور", ".") & filters.me)
 async def creator(bot: Client, message: Message):
-    await message.edit("**The best! \n @S_Z_H**")
+    await message.edit("**The best! \n @S_Z_H/@PPF22**")
 
 
 @Client.on_message(filters.command(["مدة التشغيل", "up"], ".") & filters.me)
@@ -166,11 +166,11 @@ async def get_id(bot: Client, message: Message):
 add_command_help(
     "start",
     [
-        [".alive", "Check if the bot is alive or not."],
-        [".repo", "Display the repo of this userbot."],
-        [".creator", "Show the creator of this userbot."],
-        [".id", "Send id of what you replied to."],
-        [".up `or` .uptime", "Check bot's current uptime."],
+        [".فحص", "Check if the bot is alive or not."],
+        [".ريك ثون", "Display the repo of this userbot."],
+        [".الانشاء", "Show the creator of this userbot."],
+        [".ايدي", "Send id of what you replied to."],
+        [".مدة التشغيل `or` .uptime", "Check bot's current uptime."],
     ],
 )
 
