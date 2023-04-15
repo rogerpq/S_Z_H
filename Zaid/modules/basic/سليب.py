@@ -31,7 +31,7 @@ async def collect_afk_messages(bot: Client, message: Message):
 
         if GetChatID(message) not in CHAT_TYPE:
             text = (
-                f"`هذهِ الرساله اُرسلت عبر ال UserBot .\n"
+                f"`هذهِ الرساله اُرسلت عبر سورس ريك ثون  .\n"
                 f"انا لست موجوداً الان\n"
                 f"اخر ضهور كان في : {last_seen}\n ."
                 f"سبب عدم التواجد : ```{AFK_REASON.upper()}```\n"
@@ -47,7 +47,7 @@ async def collect_afk_messages(bot: Client, message: Message):
         elif GetChatID(message) in CHAT_TYPE:
             if CHAT_TYPE[GetChatID(message)] == 50:
                 text = (
-                    f"`f"`هذهِ الرساله اُرسلت عبر ال UserBot .\n"\n"
+                    f"`هذهِ الرساله اُرسلت عبر سورس ريك ثون .\n"
                     f" اخر ضهور كان في : {last_seen}\n"
                     f"انته مطي هاي كتلك ١٠ مرات انو اني مامتواجد\n"
                     f"حين يأتي مالك الحساب سوف يطفيني .\n"
