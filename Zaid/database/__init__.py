@@ -1,6 +1,6 @@
 import motor.motor_asyncio
 
-from config import DATABASE_URL
-cli = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URL)
+from config import MONGO_URL
+cli = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
 
 dbb = cli.program
