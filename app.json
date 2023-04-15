@@ -1,31 +1,52 @@
 {
     "name": "RICKTHON Userbot",
+    "logo": "https://telegra.ph/file/7a15378b69199ca46c072.jpg",
     "description": "An first Telegram Userbot with multi Clients for Spamming or Mass.",
     "keywords": ["pyrogram", "userbot"],
     "repository": "https://github.com/rick1128/S_Z_H",
   "stack": "container",
     "env": {
         "STRING_SESSION1": {
-            "description": "fill with the telethon session string from https://replit.com/@Itz-zaid/Generator",
+            "description": "حط كود بايروجرام",
             "required": true
         },
         "MONGO_URL": {
-            "description": "Fill there an MONGO database from MONGO.com",
+            "description": "حط رابط خزن مونجو",
             "required": true,
             "value": ""
         },
+        "API_ID": {
+            "description": "ضع ايبي ايدي",
+            "required": true,
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "ضع ايبي هاش",
+            "required": true,
+            "value": ""
+        },
+        "HEROKU_APP_NAME": {
+            "description": "ضع اسم التطبيق",
+            "required": true,
+            "value": ""
+        },
+        "HEROKU_API_KEY": {
+            "description": "ضع ايبي كي هيروكو",
+            "required": true,
+            "value": ""
+        }, 
         "SUDO_USERS": {
-            "description": "Fill there your I'd go to @Zaid2_Robot pm and type /id",
+            "description": "حط ايدي حسابك",
             "required": true,
             "value": "1234567890 1234567890"
         },
         "OWNER_ID": {
-            "description": "Fill there your I'd go to @Zaid2_Robot pm and type /id",
+            "description": "حط ايدي حسابك",
             "required": true,
             "value": "1234567890"
         },
         "BOT_TOKEN": {
-            "description": "fill with your bot token get from @BotFather on telegram",
+            "description": "حط توكنك",
             "required": true,
             "value": ""
         }
