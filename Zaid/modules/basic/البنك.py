@@ -24,10 +24,10 @@ class WWW:
     NearestDC = "Country: `{}`\n" "Nearest Datacenter: `{}`\n" "This Datacenter: `{}`"
 
 @Client.on_message(
-    filters.command(["speedtest"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["اختبار السرعة"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def speed_test(client: Client, message: Message):
-    new_msg = await message.reply_text("`Running speed test . . .`")
+    new_msg = await message.reply_text("`اختبار سرعة التشغيل . . .`")
     try:
        await message.delete()
     except:
@@ -35,18 +35,18 @@ async def speed_test(client: Client, message: Message):
     spd = speedtest.Speedtest()
 
     new_msg = await new_msg.edit(
-        f"`{new_msg.text}`\n" "`Getting best server based on ping . . .`"
+        f"`{new_msg.text}`\n" "`الحصول على أفضل خادم يعتمد على البنك . . .`"
     )
     spd.get_best_server()
 
-    new_msg = await new_msg.edit(f"`{new_msg.text}`\n" "`Testing download speed . . .`")
+    new_msg = await new_msg.edit(f"`{new_msg.text}`\n" "`اختبار سرعة التنزيل . . .`")
     spd.download()
 
-    new_msg = await new_msg.edit(f"`{new_msg.text}`\n" "`Testing upload speed . . .`")
+    new_msg = await new_msg.edit(f"`{new_msg.text}`\n" "`اختبار سرعة الرفع . . .`")
     spd.upload()
 
     new_msg = await new_msg.edit(
-        f"`{new_msg.text}`\n" "`Getting results and preparing formatting . . .`"
+        f"`{new_msg.text}`\n" "`الحصول على النتائج وإعداد التنسيق . . .`"
     )
     results = spd.results.dict()
 
@@ -63,7 +63,7 @@ async def speed_test(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["ping"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["بنك"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
@@ -91,6 +91,6 @@ async def pingme(client: Client, message: Message):
 add_command_help(
     "ping",
     [
-        ["ping", "Check bot alive or not."],
+        ["بنك "تحقق من البوت على أنه يعمل أم لا ."],
     ],
 )
