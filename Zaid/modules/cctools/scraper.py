@@ -16,7 +16,7 @@ _SCRTXT = """
 
 
 🥷 **ألغيت بواسطة ->** {}
-👨‍🎤 **المساعدة ->** @Rickthon_Support 🐲
+👨‍🎤 **المساعدة ->** @Rickthon_Group 🐲
 """
 
 
@@ -29,7 +29,7 @@ async def cc_scraper(c, m):
     spl = m.text.split(" ")
     e3 = await m.reply_text("...", quote=True)
     if not spl:
-        return await e3.edit("full cmd de vai.. 😔")
+        return await e3.edit("الاوامر دي فاي كامل.. 😔")
     elif len(spl) == 2:
         _chat = spl[1].strip()
         limit = 100
@@ -40,7 +40,7 @@ async def cc_scraper(c, m):
         except ValueError:
             return await e3.edit("No. of card to Scrape must be Integer!")
 
-    await e3.edit(f"`Scrapping from {_chat}. \nHold your Horses...`")
+    await e3.edit(f"`Scrapping from {_chat}. \n اكبح جماح نفسك...`")
     _get = lambda m: getattr(m, "text", 0) or getattr(m, "caption", 0)
     _getcc = lambda m: list(filter(bool, findall("\d{16}\|\d{2,4}\|\d{2,4}\|\d{2,4}", m)))
 
@@ -60,7 +60,7 @@ async def cc_scraper(c, m):
         str(txt.count("\n")),
         m.from_user.mention,
     )
-    file = f"x{limit} CC Scrapped by ZaidUB.txt"
+    file = f"x{limit} تم إلغاء CC بواسطة ZaidUB.txt"
     with open(file, "w+") as f:
         f.write(txt)
     del txt
