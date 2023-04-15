@@ -8,10 +8,10 @@ from pyrogram.types import Message
 from Zaid.modules.help import add_command_help
 from pyrogram import enums
 
-@Client.on_message(filters.command(["الطقس", "طثس"], ".") & filters.me)
+@Client.on_message(filters.command(["الطقس", "طقس"], ".") & filters.me)
 async def get_weather(bot: Client, message: Message):
     if len(message.command) == 1:
-        await message.edit("Usage: `.weather Maldives`")
+        await message.edit("طريقة الاستعمال .الطقس + اسم مدينتك`")
         await asyncio.sleep(3)
         await message.delete()
 
@@ -34,8 +34,8 @@ async def get_weather(bot: Client, message: Message):
 
 
 add_command_help(
-    "weather",
+    "الطقس",
     [
-        [".weather", "Gets weather information for provided location."],
+        [".الطقس", "يجلب لك معلومات الطقس في المدينة المحدده."],
     ],
 )
