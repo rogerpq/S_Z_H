@@ -53,13 +53,13 @@ Checkout Tutorial!
 
 ## VPS/Locally deploy!
 ```console
-Zaid@Debian~ $ apt-get -y update
-Zaid@Debian~ $ apt-get -y install git gcc python3-pip -y
-Zaid@Debian~ $ git clone https://github.com/rick1128/S_Z_H
-Zaid@Debian~ $ cd S_Z_H
-Zaid@Debian~ $ pip3 install -U -r requirements.txt
-Zaid@Debian~ $ cp sample.env .env
-Zaid@Debian~ $ nano .env
+rickthon@Debian~ $ apt-get -y update
+rickthon@Debian~ $ apt-get -y install git gcc python3-pip -y
+rickthon@Debian~ $ git clone https://github.com/rick1128/S_Z_H
+rickthon@Debian~ $ cd S_Z_H
+rickthon@Debian~ $ pip3 install -U -r requirements.txt
+rickthon@Debian~ $ cp sample.env .env
+rickthon@Debian~ $ nano .env
 ```
 
 <h3 align="center">
@@ -67,8 +67,8 @@ Zaid@Debian~ $ nano .env
 </h3>
 
 ```console
-Zaid@Debian~ $ screen
-Zaid@Debian~ $ python3 -m Zaid
+rickthon@Debian~ $ screen
+rickthon@Debian~ $ python3 -m Zaid
 ```
 
 ## Disclaimer 
@@ -92,6 +92,7 @@ and you ended up in a Finale Battle with Telegram and at the end
 - SAIF
 - MOHAMED
 - DRAGON
+- HUSSAIN
 - PYROGRAM ⚡
 
 ## Support / Channel
