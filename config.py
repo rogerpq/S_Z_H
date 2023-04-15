@@ -11,7 +11,7 @@ API_HASH = getenv("API_HASH", "") #optional
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "").split()))
 OWNER_ID = int(getenv("OWNER_ID"))
-DATABASE_URL = getenv("DATABASE_URL")
+MONGO_URL = getenv("MONGO_URL")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 ALIVE_PIC = getenv("ALIVE_PIC", 'https://telegra.ph//file/6ef37b30de52ad0a6f8ee.mp4')
 ALIVE_TEXT = getenv("ALIVE_TEXT")
