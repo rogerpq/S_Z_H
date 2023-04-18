@@ -957,7 +957,7 @@ async def babi(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["كلب", "جلب"], ".") & filters.me)
+@Client.on_message(filters.command(["كلب", "چلب"], ".") & filters.me)
 async def anjg(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -1301,20 +1301,18 @@ add_command_help(
         ["عشقي او عمري", "لعرض الرسوم المتحركة عزيزي."],
         ["تهكير", "لعرض الرسوم المتحركة تهكير."],
         ["تفجير", "لعرض الرسوم المتحركة للتفجير."],
-        ["غبي", "To display the Brain animation 🧠."],
-        ["kontol", "To display dick art."],
-        ["penis", "To display penis art with emoji."],
-        ["tembak", "To display shooting art."],
-        ["bundir", "To display bundir art."],
-        ["helikopter", "To display helicopter art."],
-        ["y", "To display art y sj."],
-        ["awk", "to display art awkowkowk."],
-        ["nah", "To display art love."],
-        ["ajg", "To Display art anjing."],
-        ["babi", "To display art babi."],
-        ["hug", "To get A Hug Gifs anime."],
-        ["hmm", "Get Random Hmmm."],
-        ["wink", "To Get A Winking Gifs."],
+        ["غبي", "لعرض الرسوم المتحركة غبي 🧠."],
+        ["اطلاق", "لعرض متحركة اطلاق نار."],
+        ["شنق", "لعرض رسوم شنق."],
+        ["هليكوبتر", "لعرض رسوم متحركة لهليكوبتر."],
+        ["لايك", "لعرض رسم متحركة شكل لايك"],
+        ["اوك", "لعرض رسم متحركة عشكل لايك."],
+        ["ناه", "لعرض فن العشق."],
+        ["كلب", "لعرض رسم متحركة عشكل كلب."],
+        ["خنزير", "لعرض رسم متحركة عشكل خنزير."],
+        ["حضن", "لعرض متحركة حضن انمي."],
+        ["همم", "ارسال همم عشوائي."],
+        ["غمزة", "لارسال متحركة انمي يغمز."],
         ["love", "To Propose Someone."],
         ["loveyou", "It Will Send Random Emojis."],
         [
