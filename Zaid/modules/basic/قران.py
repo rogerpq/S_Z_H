@@ -12,7 +12,7 @@ from datetime import datetime
 
 
 
-@app.on_message(filters.command('قرأن','.') & filters.me)
+@Client.on_message(filters.command('قرأن','.') & filters.me)
 async def chat_broadcast(c: Client, m: Message,online=False):
  online = True
  while online:
