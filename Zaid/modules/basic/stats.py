@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from Zaid.modules.help import *
 
 
-@Client.on_message(filters.command(["stats", "status"], ".") & filters.me)
+@Client.on_message(filters.command(["معلوماتي", "معلومات حسابي"], ".") & filters.me)
 async def stats(client: Client, message: Message):
     Man = await message.edit_text("`Collecting stats...`")
     start = datetime.now()
@@ -37,12 +37,12 @@ async def stats(client: Client, message: Message):
     end = datetime.now()
     ms = (end - start).seconds
     await Man.edit_text(
-        """`Your Stats Obtained in {} seconds`
-`You have {} Private Messages.`
-`You are in {} Groups.`
-`You are in {} Super Groups.`
-`You Are in {} Channels.`
-`You Are Admin in {} Chats.`
+        """`تم الحصول على احصائيات حسابك خلال {} ثانيه`
+`لديك {} رساله خاصه .`
+`لديك {} مجموعه .`
+`لديك {} مجموعه خارقه .`
+`لديك {} قناة .`
+`انت ادمن في {} دردشه .`
 `Bots = {}`""".format(
             ms, u, g, sg, c, a_chat, b
         )
