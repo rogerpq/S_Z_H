@@ -65,7 +65,7 @@ async def evaluation_func(bot: Client, message: Message):
     else:
         evaluation = "Success"
 
-    final_output = "<b>Expression</b>:\n<code>{}</code>\n\n<b>Result</b>:\n<code>{}</code> \n".format(
+    final_output = "<b>الكود</b>:\n<code>{}</code>\n\n<b>الناتج</b>:\n<code>{}</code> \n".format(
         cmd, evaluation.strip()
     )
 
