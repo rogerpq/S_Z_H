@@ -259,7 +259,7 @@ async def upstream(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("تحديث الان", ".") & filters.me)
+@Client.on_message(filters.command(["تحديث الان", "update now", "تحديث سريع"], ".") & filters.me)
 async def updatees(client: Client, message: Message):
     if await is_heroku():
         if HAPP is None:
