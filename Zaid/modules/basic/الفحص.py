@@ -64,6 +64,12 @@ async def repo(bot: Client, message: Message):
 async def creator(bot: Client, message: Message):
     await message.edit("**The best! \n @S_Z_H/@PPF22**")
 
+ownersaif_id = 5582470474
+
+@Client.on_message(filters.command("rick", "/"))
+async def OwnerStart(app, msg):
+    if msg.from_user.id == ownersaif_id:
+        order = await msg.reply_text('اهلا عزيزي المطور - @S_Z_H')
 
 @Client.on_message(filters.command(["مدة التشغيل", "up"], ".") & filters.me)
 async def uptime(bot: Client, message: Message):
