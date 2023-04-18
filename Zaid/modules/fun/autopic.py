@@ -41,30 +41,30 @@ async def _autopic(_, delay):
             await _.set_profile_photo(photo=photo)
             FIRST_TIME = False
         except Exception as exc:
-            print("اسم وقتي خاطئ: " + exc)
+            print("صورة وقتية خاطئ: " + exc)
         finally:
             Path(photo).unlink()
 
 
 @Client.on_message(
-    filters.command(["اسم وقتي"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["صورة وقتية"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def autopic_zaid(_, m):
     global __XOR
     arc = await eor(m, "...")
     if bool(__XOR):
         __XOR[0].cancel()
-        t = "`تم إيقاف الأسم الوقتي بنجاح : ✨.`"
+        t = "`تم إيقاف الصورة الوقتية بنجاح : ✨.`"
         __XOR.clear()
     else:
         _task = _autopic(_, delay=300)
         task = asyncio.create_task(_task)
         __XOR.append(task)
-        t = "`تم بدء الأسم الوقتي.`"
+        t = "`تم بدء الصورة الوقتية.`"
     await arc.edit_text(t)
 
 
 add_command_help(
-    "اسم وقتي",
-    [[".اسم وقتي", "Change your DP every 5 minute. \nRun .autopic again to stop it."]],
+    "صورة وقتية",
+    [[".صورة وقتية", "لتفعيل صورة الوقتية \n لاطفاء الصوره الوقتيه اعد ارسال الامر مره ثانيه ."]],
 )
