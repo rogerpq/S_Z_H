@@ -100,7 +100,7 @@ async def phase4(message):
         await asyncio.sleep(SLEEP)
 
 
-@Client.on_message(filters.command(["heart", "love"], ".") & filters.me)
+@Client.on_message(filters.command(["حبي", "ايلافيو"], ".") & filters.me)
 async def hearts(client: Client, message: Message):
     await phase1(message)
     await asyncio.sleep(SLEEP * 3)
@@ -114,7 +114,7 @@ async def hearts(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.me & (filters.command(["loveyou"], ".") | filters.regex("^loveyou "))
+    filters.me & (filters.command(["احبك"], ".") | filters.regex("^loveyou "))
 )
 async def _(client: Client, message: Message):
     noble = random.randint(1, len(NOBLE) - 2)
@@ -122,7 +122,7 @@ async def _(client: Client, message: Message):
     await edit_or_reply(message, reply_text)
 
 
-@Client.on_message(filters.command("wink", ".") & filters.me)
+@Client.on_message(filters.command("غمزة", ".") & filters.me)
 async def wink(client: Client, message: Message):
     hmm_s = "https://some-random-api.ml/animu/wink"
     r = requests.get(url=hmm_s).json()
@@ -131,7 +131,7 @@ async def wink(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("hug", ".") & filters.me)
+@Client.on_message(filters.command("حضن", ".") & filters.me)
 async def hug(client: Client, message: Message):
     hmm_s = "https://some-random-api.ml/animu/hug"
     r = requests.get(url=hmm_s).json()
@@ -140,7 +140,7 @@ async def hug(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("pat", ".") & filters.me)
+@Client.on_message(filters.command("ربت", ".") & filters.me)
 async def pat(client: Client, message: Message):
     hmm_s = "https://some-random-api.ml/animu/pat"
     r = requests.get(url=hmm_s).json()
@@ -149,7 +149,7 @@ async def pat(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("pikachu", ".") & filters.me)
+@Client.on_message(filters.command("بيكاتشو", ".") & filters.me)
 async def pikachu(client: Client, message: Message):
     hmm_s = "https://some-random-api.ml/img/pikachu"
     r = requests.get(url=hmm_s).json()
@@ -164,7 +164,7 @@ async def pikachu(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("hmm", ".") & filters.me)
+@Client.on_message(filters.command("همم", ".") & filters.me)
 async def hello_world(client: Client, message: Message):
     mg = await edit_or_reply(
         message,
@@ -173,7 +173,7 @@ async def hello_world(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.me & (filters.command(["ahh"], ".") | filters.regex("^ahh "))
+    filters.me & (filters.command(["اهه"], ".") | filters.regex("^ahh "))
 )
 async def hello_world(client: Client, message: Message):
     mg = await edit_or_reply(message, "ahh")
@@ -193,7 +193,7 @@ async def hello_world(client: Client, message: Message):
     await mg.edit("aaahhhhhhhh")
 
 
-@Client.on_message(filters.command("brain", ".") & filters.me)
+@Client.on_message(filters.command("غبي", ".") & filters.me)
 async def pijtau(client: Client, message: Message):
     if message.forward_from:
         return
@@ -201,20 +201,20 @@ async def pijtau(client: Client, message: Message):
     animation_ttl = range(0, 14)
     await message.edit("brain")
     animation_chars = [
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠         <(^_^ <)🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠       <(^_^ <)  🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠     <(^_^ <)    🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠   <(^_^ <)      🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠 <(^_^ <)        🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠<(^_^ <)         🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n(> ^_^)>🧠         🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n  (> ^_^)>🧠       🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n    (> ^_^)>🧠     🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n      (> ^_^)>🧠   🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n        (> ^_^)>🧠 🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n          (> ^_^)>🧠🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           (> ^_^)>🗑",
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           <(^_^ <)🗑",
+        "عقلك ➡️ 🧠\n\n🧠         <(^_^ <)🗑",
+        "عقلك ➡️ 🧠\n\n🧠       <(^_^ <)  🗑",
+        "عقلك ➡️ 🧠\n\n🧠     <(^_^ <)    🗑",
+        "عقلك ➡️ 🧠\n\n🧠   <(^_^ <)      🗑",
+        "عقلك ➡️ 🧠\n\n🧠 <(^_^ <)        🗑",
+        "عقلك ➡️ 🧠\n\n🧠<(^_^ <)         🗑",
+        "عقلك ➡️ 🧠\n\n(> ^_^)>🧠         🗑",
+        "عقلك ➡️ 🧠\n\n  (> ^_^)>🧠       🗑",
+        "عقلك ➡️ 🧠\n\n    (> ^_^)>🧠     🗑",
+        "عقلك ➡️ 🧠\n\n      (> ^_^)>🧠   🗑",
+        "عقلك ➡️ 🧠\n\n        (> ^_^)>🧠 🗑",
+        "عقلك ➡️ 🧠\n\n          (> ^_^)>🧠🗑",
+        "عقلك ➡️ 🧠\n\n           (> ^_^)>🗑",
+        "عقلك ➡️ 🧠\n\n           <(^_^ <)🗑",
     ]
     for i in animation_ttl:
 
@@ -222,7 +222,7 @@ async def pijtau(client: Client, message: Message):
         await message.edit(animation_chars[i % 14])
 
 
-@Client.on_message(filters.command("bomb", ".") & filters.me)
+@Client.on_message(filters.command("تفجير", ".") & filters.me)
 async def gahite(client: Client, message: Message):
     if message.forward_from:
         return
@@ -248,7 +248,7 @@ async def gahite(client: Client, message: Message):
     await asyncio.sleep(2)
 
 
-@Client.on_message(filters.command("call", ".") & filters.me)
+@Client.on_message(filters.command("مكالمة", ".") & filters.me)
 async def hajqag(client: Client, message: Message):
     if message.forward_from:
         return
@@ -280,7 +280,7 @@ async def hajqag(client: Client, message: Message):
         await message.edit(animation_chars[i % 18])
 
 
-@Client.on_message(filters.command("kill", ".") & filters.me)
+@Client.on_message(filters.command("قتل", ".") & filters.me)
 async def gahah(client: Client, message: Message):
     if message.forward_from:
         return
@@ -299,14 +299,14 @@ async def gahah(client: Client, message: Message):
         "------------------>",
         "------>;(^。^)ノ",
         "(￣ー￣) DEAD",
-        "**Mrr Gya Matherchod lala la 😈.😈.😈.😈.😈.😈.😈......**\n '#Sad_Reacts_Online'\n",
+        "**ابلع هيد شوت 😈.😈.😈.😈.😈.😈.😈......**\n '#Sad_Reacts_Online'\n",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await message.edit(animation_chars[i % 12])
 
 
-@Client.on_message(filters.command("wtf", ".") & filters.me)
+@Client.on_message(filters.command("واتفاك", ".") & filters.me)
 async def gagahkah(client: Client, message: Message):
     if message.forward_from:
         return
@@ -326,7 +326,7 @@ async def gagahkah(client: Client, message: Message):
         await message.edit(animation_chars[i % 5])
 
 
-@Client.on_message(filters.command("ding", ".") & filters.me)
+@Client.on_message(filters.command("طوبة", ".") & filters.me)
 async def gkahgagw(client: Client, message: Message):
     animation_interval = 0.3
     animation_ttl = range(0, 30)
@@ -351,13 +351,13 @@ async def gkahgagw(client: Client, message: Message):
         await message.edit(animation_chars[i % 10])
 
 
-@Client.on_message(filters.command("hypo", ".") & filters.me)
+@Client.on_message(filters.command("مربعات", ".") & filters.me)
 async def okihakga(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 0.3
     animation_ttl = range(0, 15)
-    await message.edit("hypo....")
+    await message.edit("مربعات....")
     animation_chars = [
         "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
         "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬛⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
@@ -380,23 +380,23 @@ async def okihakga(client: Client, message: Message):
         await message.edit(animation_chars[i % 15])
 
 
-@Client.on_message(filters.command(["gangsta", "gang", "gangstar"], ".") & filters.me)
+@Client.on_message(filters.command(["حرك", "حرق", "احركة"], ".") & filters.me)
 async def gajjajay(client: Client, message: Message):
-    await message.edit("EVERyBOdy")
+    await message.edit("احركة")
     await asyncio.sleep(0.3)
-    await message.edit("iZ")
+    await message.edit("شكو -")
     await asyncio.sleep(0.2)
-    await message.edit("GangSTur")
+    await message.edit("ذب علية بانزين")
     await asyncio.sleep(0.5)
-    await message.edit("UNtIL ")
+    await message.edit("لايمعود")
     await asyncio.sleep(0.2)
-    await message.edit("I")
+    await message.edit("انجب واسكت")
     await asyncio.sleep(0.3)
-    await message.edit("ArRivE")
+    await message.edit("اخر مرة والله ماعيد")
     await asyncio.sleep(0.3)
     await message.edit("🔥🔥🔥")
     await asyncio.sleep(0.3)
-    await message.edit("EVERyBOdy iZ GangSTur UNtIL I ArRivE 🔥🔥🔥")
+    await message.edit("يلا احركة حرك بسرعة 🔥🔥🔥")
 
 
 @Client.on_message(filters.command("charging", ".") & filters.me)
