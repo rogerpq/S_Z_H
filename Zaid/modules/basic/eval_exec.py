@@ -12,7 +12,7 @@ from Zaid.helper.PyroHelpers import ReplyCheck
 
 
 @Client.on_message(
-    filters.command("eval", ".")
+    filters.command("تجربة", ".")
     & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
@@ -22,7 +22,7 @@ async def eval_func_init(bot, message):
 
 
 @Client.on_edited_message(
-    filters.command("eval", ".")
+    filters.command("تجربه", ".")
     & filters.me
     & ~filters.forwarded
     & ~filters.via_bot
@@ -32,7 +32,7 @@ async def eval_func_edited(bot, message):
 
 
 async def evaluation_func(bot: Client, message: Message):
-    status_message = await message.reply_text("Processing ...")
+    status_message = await message.reply_text("جار ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
 
     reply_to_id = message.id
