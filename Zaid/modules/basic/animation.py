@@ -248,7 +248,7 @@ async def gahite(client: Client, message: Message):
     await asyncio.sleep(2)
 
 
-@Client.on_message(filters.command("مكالمة", ".") & filters.me)
+@Client.on_message(filters.command("اتصل", ".") & filters.me)
 async def hajqag(client: Client, message: Message):
     if message.forward_from:
         return
@@ -344,7 +344,7 @@ async def gkahgagw(client: Client, message: Message):
     ]
     if message.forward_from:
         return
-    await message.edit("ding..dong..ding..dong ...")
+    await message.edit("دينك....دونك...دونك...")
     await asyncio.sleep(4)
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
@@ -399,7 +399,7 @@ async def gajjajay(client: Client, message: Message):
     await message.edit("يلا احركة حرك بسرعة 🔥🔥🔥")
 
 
-@Client.on_message(filters.command("charging", ".") & filters.me)
+@Client.on_message(filters.command("شحن", ".") & filters.me)
 async def timer_blankx(client: Client, message: Message):
     txt = (
         message.text[10:]
@@ -418,7 +418,7 @@ async def timer_blankx(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["koc", "kocok"], ".") & filters.me)
+@Client.on_message(filters.command(["يد", "يد +18"], ".") & filters.me)
 async def kocok(client: Client, message: Message):
     e = await edit_or_reply(message, "8✊===D")
     await e.edit("8=✊==D")
@@ -452,7 +452,7 @@ async def kocok(client: Client, message: Message):
     await e.edit("RIP 😭😭😭😭")
 
 
-@Client.on_message(filters.command(["fuck", "fucek"], ".") & filters.me)
+@Client.on_message(filters.command(["فاك", "تبا لك"], ".") & filters.me)
 async def ngefuck(client: Client, message: Message):
     e = await edit_or_reply(message, ".                       /¯ )")
     await e.edit(".                       /¯ )\n                      /¯  /")
@@ -482,7 +482,7 @@ async def ngefuck(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("hack", ".") & filters.me)
+@Client.on_message(filters.command("تهكير", ".") & filters.me)
 async def hak(client: Client, message: Message):
     await message.edit_text("Looking for WhatsApp databases in targeted person...")
     await asyncio.sleep(2)
@@ -537,7 +537,7 @@ async def hak(client: Client, message: Message):
     await message.edit_text("Hacking complete!\nUploading file...")
     await asyncio.sleep(2)
     await message.edit_text(
-        "Targeted Account Hacked...!\n\n ✅ File has been successfully uploaded to my server.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"
+        "تم تهكير المستخدم بنجاح...!\n\n ✅ تم رفع الملفات هنا.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"
     )
 
 
@@ -559,7 +559,7 @@ async def titid(client: Client, message: Message):
     await message.edit(titid)
 
 
-@Client.on_message(filters.command("dino", ".") & filters.me)
+@Client.on_message(filters.command("دينصور", ".") & filters.me)
 async def adadino(client: Client, message: Message):
     typew = await edit_or_reply(message, "`DIN DINNN.....`")
     await asyncio.sleep(1)
@@ -616,7 +616,7 @@ async def adadino(client: Client, message: Message):
     await typew.edit("`-DIED-`")
 
 
-@Client.on_message(filters.command(["sayang", "lover"], ".") & filters.me)
+@Client.on_message(filters.command(["عمري", "عشيقي"], ".") & filters.me)
 async def zeyenk(client: Client, message: Message):
     e = await edit_or_reply(message, "I LOVEE YOUUU 💕")
     await e.edit("💝💘💓💗")
@@ -644,7 +644,7 @@ async def zeyenk(client: Client, message: Message):
     await e.edit("LOVE YOU 💞")
 
 
-@Client.on_message(filters.command("gabut", ".") & filters.me)
+@Client.on_message(filters.command("غابوت", ".") & filters.me)
 async def menggabut(client: Client, message: Message):
     e = await edit_or_reply(message, "`GO AWAY`")
     await e.edit("`THHARA VAI JOGINDER`")
@@ -847,7 +847,7 @@ async def menggabut(client: Client, message: Message):
     await e.edit("`GABUT`")
 
 
-@Client.on_message(filters.command(["helikopter", "heli"], ".") & filters.me)
+@Client.on_message(filters.command(["هليكوبتر", "هلي"], ".") & filters.me)
 async def helikopter(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -870,15 +870,15 @@ async def helikopter(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("tembak", ".") & filters.me)
+@Client.on_message(filters.command("اطلاق", ".") & filters.me)
 async def dornembak(client: Client, message: Message):
     await edit_or_reply(
         message,
-        "_/﹋\\_\n" "(҂`_´)\n" "<,︻╦╤─ ҉\n" r"_/﹋\_" "\n**Do you want to be my boyfriend??!**",
+        "_/﹋\\_\n" "(҂`_´)\n" "<,︻╦╤─ ҉\n" r"_/﹋\_" "\nهل تصبح صديقي المفضل؟",
     )
 
 
-@Client.on_message(filters.command("bundir", ".") & filters.me)
+@Client.on_message(filters.command("شنق", ".") & filters.me)
 async def ngebundir(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -899,7 +899,7 @@ async def ngebundir(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["awk", "awikwok"], ".") & filters.me)
+@Client.on_message(filters.command(["اوك", "حسنا"], ".") & filters.me)
 async def awikwok(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -911,7 +911,7 @@ async def awikwok(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("y", ".") & filters.me)
+@Client.on_message(filters.command("لايك", ".") & filters.me)
 async def ysaja(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -931,7 +931,7 @@ async def ysaja(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("tank", ".") & filters.me)
+@Client.on_message(filters.command("دبابة", ".") & filters.me)
 async def tank(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -942,7 +942,7 @@ async def tank(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("babi", ".") & filters.me)
+@Client.on_message(filters.command("خنزير", ".") & filters.me)
 async def babi(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -957,7 +957,7 @@ async def babi(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["ajg", "anjg"], ".") & filters.me)
+@Client.on_message(filters.command(["كلب", "جلب"], ".") & filters.me)
 async def anjg(client: Client, message: Message):
     await edit_or_reply(
         message,
@@ -970,16 +970,16 @@ async def anjg(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("nah", ".") & filters.me)
+@Client.on_message(filters.command("ناه", ".") & filters.me)
 async def nahlove(client: Client, message: Message):
     typew = await edit_or_reply(
-        message, "`\n(\\_/)`" "`\n(●_●)`" "`\n />💖 *This is for you`"
+        message, "`\n(\\_/)`" "`\n(●_●)`" "`\n />💖 *هذا لك`"
     )
     await asyncio.sleep(2)
     await typew.edit("`\n(\\_/)`" "`\n(●_●)`")
 
 
-@Client.on_message(filters.command("santet", ".") & filters.me)
+@Client.on_message(filters.command("ابتزاز", ".") & filters.me)
 async def santet(client: Client, message: Message):
     typew = await edit_or_reply(message, "`Enabling Online Witchcraft Command....`")
     await asyncio.sleep(2)
@@ -1288,20 +1288,20 @@ async def santet(client: Client, message: Message):
     await asyncio.sleep(0.03)
     await typew.edit(str(number) + "%   ████████████████▌")
     await asyncio.sleep(1)
-    await typew.edit("**Target Successfully Stuck Online 🥴**")
+    await typew.edit("**الهدف عالق بنجاح عبر الانترنت 🥴**")
 
 
 add_command_help(
-    "animation",
+    "تسلية",
     [
-        ["fuck", "To display the middle finger animation."],
-        ["dino", "To display dino chased animation."],
-        ["santet", "To display online blackmail animation."],
-        ["gabut", "To display the animation gait."],
-        ["sayang or lover", "To display the animation dear."],
-        ["hack", "To display a fake hacking animation."],
-        ["bomb", "To display the Bomb animation."],
-        ["brain", "To display the Brain animation 🧠."],
+        ["فاك", "لعرض الرسوم المتحركة للإصبع الأوسط."],
+        ["دينصور", "لعرض الرسوم المتحركة مطاردة دينصور."],
+        ["ابتزاز", "لعرض الرسوم المتحركة الابتزاز عبر الإنترنت."],
+        ["غابوت", "لعرض مشية الرسوم المتحركة."],
+        ["عشقي او عمري", "لعرض الرسوم المتحركة عزيزي."],
+        ["تهكير", "لعرض الرسوم المتحركة تهكير."],
+        ["تفجير", "لعرض الرسوم المتحركة للتفجير."],
+        ["غبي", "To display the Brain animation 🧠."],
         ["kontol", "To display dick art."],
         ["penis", "To display penis art with emoji."],
         ["tembak", "To display shooting art."],
