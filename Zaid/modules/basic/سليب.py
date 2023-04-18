@@ -31,11 +31,11 @@ async def collect_afk_messages(bot: Client, message: Message):
 
         if GetChatID(message) not in CHAT_TYPE:
             text = (
-                f"`هذهِ الرساله اُرسلت عبر سورس ريك ثون  .\n"
+                f"هذهِ الرساله اُرسلت عبر سورس ريك ثون  .\n"
                 f"انا لست موجوداً الان\n"
                 f"اخر ضهور كان في : {last_seen}\n ."
                 f"سبب عدم التواجد : ```{AFK_REASON.upper()}```\n"
-                f"اراك بعد ان يأتي مالك الحساب .`"
+                f"اراك بعد ان يأتي مالك الحساب ."
             )
             await bot.send_message(
                 chat_id=GetChatID(message),
@@ -47,11 +47,11 @@ async def collect_afk_messages(bot: Client, message: Message):
         elif GetChatID(message) in CHAT_TYPE:
             if CHAT_TYPE[GetChatID(message)] == 50:
                 text = (
-                    f"`هذهِ الرساله اُرسلت عبر سورس ريك ثون .\n"
+                    f"هذهِ الرساله اُرسلت عبر سورس ريك ثون .\n"
                     f" اخر ضهور كان في : {last_seen}\n"
                     f"انته مطي هاي كتلك ١٠ مرات انو اني مامتواجد\n"
                     f"حين يأتي مالك الحساب سوف يطفيني .\n"
-                    f"لا مزيد من الرسائل التلقائية لك`"
+                    f"لا مزيد من الرسائل التلقائية لك"
                 )
                 await bot.send_message(
                     chat_id=GetChatID(message),
@@ -62,10 +62,10 @@ async def collect_afk_messages(bot: Client, message: Message):
                 return
             elif CHAT_TYPE[GetChatID(message)] % 5 == 0:
                 text = (
-                    f"`مرحبًا ، ما زلت لم أعود بعد\n"
+                    f"مرحبًا ، ما زلت لم أعود بعد\n"
                     f"اخر ضهور كان في : {last_seen}\n"
                     f"لا يزال مشغولا : ```{AFK_REASON.upper()}```\n"
-                    f"حاول التنفيذ مرة اخرى .`"
+                    f"حاول التنفيذ مرة اخرى ."
                 )
                 await bot.send_message(
                     chat_id=GetChatID(message),
@@ -76,7 +76,7 @@ async def collect_afk_messages(bot: Client, message: Message):
         CHAT_TYPE[GetChatID(message)] += 1
 
 
-@Client.on_message(filters.command("afk", ".") & filters.me, group=3)
+@Client.on_message(filters.command("سليب", ".") & filters.me, group=3)
 async def afk_set(bot: Client, message: Message):
     global AFK_REASON, AFK, AFK_TIME
 
@@ -95,7 +95,7 @@ async def afk_set(bot: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("afk", "!") & filters.me, group=3)
+@Client.on_message(filters.command("سليب", "!") & filters.me, group=3)
 async def afk_unset(bot: Client, message: Message):
     global AFK, AFK_TIME, AFK_REASON, USERS, GROUPS
 
@@ -135,9 +135,9 @@ if AFK:
 
 
 add_command_help(
-    "afk",
+    "سليب",
     [
-        [".afk", "Activates AFK mode with reason as anything after .afk\nUsage: ```.afk <reason>```"],
-        ["!afk", "Deactivates AFK mode."],
+        [".سليب", "لتفعيل السليب على حسابك"],
+        ["!سليب", "لالغاء السليب على حسابك."],
     ],
 )
