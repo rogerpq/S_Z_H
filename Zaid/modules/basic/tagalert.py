@@ -5,7 +5,7 @@ from Zaid.modules.help import add_command_help
 log = []
 
 
-@Client.on_message(filters.command("tagalert on", ".") & filters.me)
+@Client.on_message(filters.command("تراكم", ".") & filters.me)
 async def set_no_log_p_m(client: Client, message: Message):
     if LOG_GROUP != -100:
         if not message.chat.id in log:
