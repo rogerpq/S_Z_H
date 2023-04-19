@@ -7,8 +7,8 @@ from pyrogram import Client
 from modules.help import *
  
 
-ALIVE_PIC = 'https://telegra.ph//file/6ef37b30de52ad0a6f8ee.mp4'
-@Client.on_message(filters.command(["alive", "awake"], [".", "!"]) & filters.me)
+ALIVE_PIC = 'https://graph.org//file/6ef37b30de52ad0a6f8ee.mp4'
+@Client.on_message(filters.command(["فحص", "السورس"], [".", "!"]) & filters.me)
 async def alive(client: Client, e: Message):
         me = await client.get_me()
         Alive_msg = f"𝐑𝐈𝐂𝐊𝐓𝐇𝐎𝐍 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐈𝐬 𝐎𝐧 𝐅𝐢𝐫𝐞 🔥 \n\n"
