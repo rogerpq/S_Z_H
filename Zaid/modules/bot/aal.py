@@ -10,6 +10,7 @@ from modules.help import *
 ALIVE_PIC = 'https://graph.org//file/6ef37b30de52ad0a6f8ee.mp4'
 @Client.on_message(filters.command(["awake", "alive"], [".", "!"]) & filters.me)
 async def alive(client: Client, e: Message):
+    try:
         me = await client.get_me()
         Alive_msg = f"𝐑𝐈𝐂𝐊𝐓𝐇𝐎𝐍 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐈𝐬 𝐎𝐧 𝐅𝐢𝐫𝐞 🔥 \n\n"
         Alive_msg += f"◈ ━━━━━━ ◆ ━━━━━━ ◈ \n"
@@ -19,9 +20,9 @@ async def alive(client: Client, e: Message):
         Alive_msg += f"► Sᴜᴘᴘᴏʀᴛ : [Jᴏɪɴ.](https://t.me/rickthon_group) \n"
         Alive_msg += f"◈ ━━━━━━ ◆ ━━━━━━ ◈ \n\n"
         await e.reply_photo(
-        photo=ALIVE_PIC,
-        caption=Alive_msg,
-        reply_markup=InlineKeyboardMarkup(
+            photo=ALIVE_PIC,
+            caption=Alive_msg,
+            reply_markup=InlineKeyboardMarkup(
                 [[
                     InlineKeyboardButton(
                         "• 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 •", url="https://t.me/RICKTHON")
@@ -29,8 +30,8 @@ async def alive(client: Client, e: Message):
                     InlineKeyboardButton(
                         "• 𝐃𝐄𝐕 •", url="https://t.me/S_Z_H")
                 ]],
-        ),
-    ) 
+            ),
+        ) 
     except Exception as lol:         
         Alive_msg = f"𝐑𝐈𝐂𝐊𝐓𝐇𝐎𝐍 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐈𝐬 𝐎𝐧 𝐅𝐢𝐫𝐞 🔥 \n\n"
         Alive_msg += f"◈ ━━━━━━ ◆ ━━━━━━ ◈ \n"
@@ -39,15 +40,16 @@ async def alive(client: Client, e: Message):
         Alive_msg += f"► Sᴜᴘᴘᴏʀᴛ : [Jᴏɪɴ](https://t.me/rickthon_group) \n"
         Alive_msg += f"◈ ━━━━━━ ◆ ━━━━━━ ◈ \n\n"
         await e.reply_photo(
-        photo=ALIVE_PIC,
-        caption=Alive_msg,
-        reply_markup=InlineKeyboardMarkup(
-            [
+            photo=ALIVE_PIC,
+            caption=Alive_msg,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton("• 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 •", url="https://t.me/RICKTHON"),
+                    [
+                        InlineKeyboardButton("• 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 •", url="https://t.me/RICKTHON"),
+                    ],
+                    [
+                        InlineKeyboardButton("• 𝐃𝐄𝐕 •", url="https://t.me/S_Z_H"),
+                    ],
                 ],
-                [
-                    InlineKeyboardButton("• 𝐃𝐄𝐕 •", url="https://t.me/S_Z_H"),
-                ],
-            ],
-        ),
+            ),
+        )
