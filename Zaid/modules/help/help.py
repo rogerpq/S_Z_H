@@ -17,7 +17,7 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
-@Client.on_message(filters.command(["مساعدة", "مساعده"], ".") & filters.me)
+@Client.on_message(filters.command(["مساعدة", "الاوامر"], ".") & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -38,17 +38,17 @@ async def module_help(client: Client, message: Message):
             print(f"{e}")
             ac = PrettyTable()
             ac.header = False
-            ac.title = "Rickthon-UserBot Plugins"
+            ac.title = "RICKTHON-UserBot Plugins"
             ac.align = "l"
             for x in split_list(sorted(CMD_HELP.keys()), 2):
                 ac.add_row([x[0], x[1] if len(x) >= 2 else None])
             xx = await client.send_message(
                 message.chat.id,
-                f"```{str(ac)}```\n• @rickthon_group × @RICKTHON - @S_Z_H - @PPF22 •",
+                f"```{str(ac)}```\n• @RICKTHON •",
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
-                f"**إستعمال:** `.مساعدة البث` **لعرض معلومات الوحدة**"
+                f"**لعرض الاوامر بشكل ازرار قم بتفعيل الانلاين لبوتك!**"
             )
             return
 
@@ -58,14 +58,14 @@ async def module_help(client: Client, message: Message):
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **الأمر:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @RICKTHON - @PPF22 - @S_Z_H"
+            this_command += "© @RICKTHON"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
         else:
             await edit_or_reply(
                 message,
-                f"`{help_arg}` **Not a Valid Module Name.**",
+                f"`{help_arg}` **لايوجد هكذا امر.**",
             )
 
 
