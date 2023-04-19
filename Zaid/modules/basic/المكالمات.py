@@ -35,22 +35,22 @@ async def get_group_call(
             ).full_chat
         if full_chat is not None:
             return full_chat.call
-    await message.edit(f"**No group call Found** {err_msg}")
+    await message.edit(f"**• ليس هناك مكالمه شغاله في المجموعه** {err_msg}")
     return False
 
 
 @Client.on_message(
-    filters.command(["startvc"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["تشغيل المكالمه"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
-    tex = await message.reply_text(message, "`Processing . . .`")
+    tex = await message.reply_text(message, "`جاري معالجه الامر . . .`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
     else:
         chat_id = message.chat.id
-    args = f"**Started Group Call\n • **Chat ID** : `{chat_id}`"
+    args = f"**▪︎ تم تشغيل مكالمه في الكروب\n • **معرف الدردشة** : `{chat_id}`"
     try:
         if not vctitle:
             await client.invoke(
@@ -60,7 +60,7 @@ async def opengc(client: Client, message: Message):
                 )
             )
         else:
-            args += f"\n • **Title:** `{vctitle}`"
+            args += f"\n ■ **اسم الدردشه : ** `{vctitle}`"
             await client.invoke(
                 CreateGroupCall(
                     peer=(await client.resolve_peer(chat_id)),
@@ -70,22 +70,22 @@ async def opengc(client: Client, message: Message):
             )
         await tex.edit(args)
     except Exception as e:
-        await tex.edit(f"**INFO:** `{e}`")
+        await tex.edit(f"**• معلومات الدردشه :** `{e}`")
 
 
 @Client.on_message(
-    filters.command(["stopvc"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["ايقاف المكالمه"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def end_vc_(client: Client, message: Message):
     chat_id = message.chat.id
     if not (
         group_call := (
-            await get_group_call(client, message, err_msg=", group call already ended")
+            await get_group_call(client, message, err_msg=", تم إنهاء المكالمة في المجموعه بالفعل")
         )
     ):
         return
     await client.invoke(DiscardGroupCall(call=group_call))
-    await message.reply_text(f"Ended group call in **Chat ID** : `{chat_id}`")
+    await message.reply_text(f"Ended group call in **معرف الدردشه ** : `{chat_id}`")
 
 
 add_command_help(
