@@ -52,7 +52,7 @@ async def alive_function(message: Message, answers):
     msg = f"""
 <b> — سورس ريك ثون يعمل بنجاح.</b>
 
-<b> • اليوزر الخاص بك :</b> {message.from_user.mention}
+<b> • يوزرك :</b> {message.from_user.mention}
 <b> • الإضافات :</b> <code>{len(CMD_HELP)} Modules</code>
 <b> • إصدار بايثون :</b> <code>{pyver.split()[0]}</code>
 <b> • إصدار بايروجرام :</b> <code>{pyrover}</code>
@@ -62,9 +62,9 @@ async def alive_function(message: Message, answers):
 """
     answers.append(
         InlineQueryResultArticle(
-            title="Alive",
-            description="Check Bot's Stats",
-            thumb_url="https://telgraph.org/file/03fecc7bd69cb6f139352.jpg",
+            title="فحص",
+            description="البوت الخاص بك",
+            thumb_url="https://graph.org/file/03fecc7bd69cb6f139352.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -80,9 +80,9 @@ async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
     answers.append(
         InlineQueryResultArticle(
-            title="Help Article!",
-            description="Check Command List & Help",
-            thumb_url="https://telegra.ph/file/cc0890d0876bc18c19e05.jpg",
+            title="اوامر المساعدة",
+            description="هنا تجد اوامر المساعدة الخاصة بالسورس",
+            thumb_url="https://graph.org/file/cc0890d0876bc18c19e05.jpg",
             input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
             ),
@@ -110,4 +110,5 @@ async def inline_query_handler(client: Client, query):
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
-#هذا الملف تم تعريبه من @PPF22
+#هذا الملف تم تعريبه من @PPF22 # تعريبه غلط
+# روجر كان هنا - @E_7_V
