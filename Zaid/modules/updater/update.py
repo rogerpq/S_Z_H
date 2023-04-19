@@ -262,7 +262,7 @@ async def upstream(client: Client, message: Message):
 @Client.on_message(filters.command(["تحديث الان", "update now", "تحديث سريع"], ".") & filters.me)
 async def updatees(client: Client, message: Message):
     if await is_heroku():
-        if HAPP is None:
+        if HEROKU_APP is None:
             return await message.edit_text(
                 "يرجى التأكد من فارات HEROKU_API_KEY و HEROKU_APP_NAME في هيروكو",
             )
@@ -281,7 +281,7 @@ async def updatees(client: Client, message: Message):
     for checks in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
         verification = str(checks.count())
     if verification == "":
-        return await response.edit("Bot is up-to-date!")
+        return await response.edit("عزيزي السورس محدث اخر اصدار ولا يوجد تحديثات!")
     updates = ""
     ordinal = lambda format: "%d%s" % (
         format,
@@ -289,12 +289,12 @@ async def updatees(client: Client, message: Message):
     )
     for info in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
         updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
+    _update_response_ = "<b>يوجد تحديث جديد للبوت!</b>\n\n➣ تطبيق التحديثات الان</code>\n\n**<u>التحديثات:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await PasteBin(updates)
         nrs = await response.edit(
-            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
+            f"<b>يوجد تحديث جديد للبوت!</b>\n\n➣ تطبيق التحديثات الان</code>\n\n**<u>التحديثات:</u>**\n\n[اضغط هنا لمعرفة التحديثات]({url})"
         )
     else:
         nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
