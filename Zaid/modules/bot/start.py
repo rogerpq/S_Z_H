@@ -9,7 +9,7 @@ from pyrogram import *
 from pyrogram.types import * 
 
 PHONE_NUMBER_TEXT = (
-    "✘ أهلًا بك عزيزي 👋!\n\n✘ أنا المساعد الخاص بك?\n\n‣ أنا أستطيع مساعدتك في معرفة أوامر السورس.\n\n‣ المطورين: @PPF22 - @S_Z_H \n\n‣ شكرًا لك لتنصيب ريك ثون\n\n‣ ارسل /clone {send your PyroGram String Session}"
+    "✘ أهلًا بك عزيزي 👋!\n\n✘ أنا المساعد الخاص بك?\n\n‣ أنا أستطيع مساعدتك في معرفة أوامر السورس.\n\n‣ المطور: @S_Z_H \n\n‣ شكرًا لك لتنصيب ريك ثون\n\n‣ ارسل /clone {لارسال كود بايروجرام الخاص بك}"
 )
 
 @app.on_message(filters.user(OWNER_ID) & filters.command("start"))
@@ -19,7 +19,7 @@ async def hello(client: app, message):
                 InlineKeyboardButton("𝗗𝗘𝗩 𝗥𝗜𝗖𝗞𝗧𝗛𝗢𝗡", url="t.me/S_Z_H"),
             ],
             [
-                InlineKeyboardButton("𝗗𝗘𝗩 𝗥𝗜𝗖𝗞𝗧𝗛𝗢𝗡", url="t.me/PPF22"),
+                InlineKeyboardButton("𝗗𝗘𝗩 𝗥𝗜𝗖𝗞𝗧𝗛𝗢𝗡", url="t.me/S_Z_H"),
             ],
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -41,4 +41,5 @@ async def clone(bot: app, msg: Message):
         await msg.reply(f"لقد نجح عميلك كـ {user.first_name} ✅.")
     except Exception as e:
         await msg.reply(f"**حدث خطأ ما:** `{str(e)}`\n اضغط /start مرة أخرى.")
-#تعريب - @PPF22
+#تعريب - @PPF22 # تعريبه كله غلط ونص التعريب حاط حقوقه
+# روجر كان هنا - @E_7_V
