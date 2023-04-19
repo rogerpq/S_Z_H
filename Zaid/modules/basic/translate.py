@@ -7,19 +7,19 @@ from Zaid.helper.utility import get_arg
 
 
 
-@Client.on_message(filters.command(["tr", "translate"], ["."]) & filters.me)
+@Client.on_message(filters.command(["ترجم", "ترجمه"], ["."]) & filters.me)
 async def pytrans_tr(_, message: Message):
-  tr_msg = await message.edit("`Processing...`")
+  tr_msg = await message.edit("`جاري المعالجه`")
   r_msg = message.reply_to_message
   args = get_arg(message)
   if r_msg:
     if r_msg.text:
       to_tr = r_msg.text
     else:
-      return await tr_msg.edit("`Reply to a message that contains text!`")
+      return await tr_msg.edit("`عزيزي قم بلرد على الرساله ثم اكتب الامر !`")
     # Checks if dest lang is defined by the user
     if not args:
-      return await tr_msg.edit(f"`Please define a destination language!` \n\n**Ex:** `{Config.CMD_PREFIX}ptr si Hey, I'm using telegram!`")
+      return await tr_msg.edit(f"`يرجى تحديد لغة التي تريد الترجمه لها!` \n\n**كمثال : ** `{Config.CMD_PREFIX}اهلا انا استخدم ريكثون !`")
     # Setting translation if provided
     else:
       sp_args = args.split(" ")
@@ -53,12 +53,12 @@ async def pytrans_tr(_, message: Message):
 `{translation["translation"]}`
 """
     if len(tred_txt) > 4096:
-      await tr_msg.edit("`Wah!! Translated Text So Long Tho!, Give me a minute, I'm sending it as a file!`")
-      tr_txt_file = open("translated.txt", "w+")
+      await tr_msg.edit("`نص مترجم منذ فترة طويلة ! أعطني دقيقة ، سأرسله كملف`")
+      tr_txt_file = open("الترجمه.txt", "w+")
       tr_txt_file.write(tred_txt)
       tr_txt_file.close()
       await tr_msg.reply_document("ptranslated_NEXAUB.txt")
-      os.remove("ptranslated.txt")
+      os.remove("الترجمه.txt")
       await tr_msg.delete()
     else:
       await tr_msg.edit(tred_txt)
@@ -66,6 +66,6 @@ async def pytrans_tr(_, message: Message):
 add_command_help(
     "translate",
     [
-        [".tr", "Translate some text by give a text or reply that text/caption."],
+        [".ترجم", "ترجمة بعض النصوص بإعطاء نص أو الرد على هذا النص"],
     ],
 )
