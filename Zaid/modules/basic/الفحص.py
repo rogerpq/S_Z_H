@@ -11,7 +11,7 @@ from Zaid.helper.PyroHelpers import ReplyCheck
 from Zaid.modules.help import add_command_help
 from Zaid.modules.bot.inline import get_readable_time
 
-alive_logo = ALIVE_PIC or "https://telegra.ph//file/6ef37b30de52ad0a6f8ee.mp4"
+alive_logo = ALIVE_PIC or "https://graph.org//file/6ef37b30de52ad0a6f8ee.mp4"
 
 if ALIVE_TEXT:
    txt = ALIVE_TEXT
@@ -28,7 +28,7 @@ else:
     )
 
 @Client.on_message(
-    filters.command(["فحص", "ايقظ"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["فحص", "السورس"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def alive(client: Client, message: Message):
     xx = await message.reply_text("✜| أهلًا بك عزيزي منصب ريك ثون انتظر قليلًا ")
@@ -57,12 +57,12 @@ async def repo(bot: Client, message: Message):
     await asyncio.sleep(1)
     await message.edit("انتظر قليلًا لأريك قناة السورس.....")
     await asyncio.sleep(1)
-    await message.edit("هذه هي قناة السورس: \n\n\nhttps://t.me/Rickthon\nالمطور : @PPF22 / @S_Z_H")
+    await message.edit("هذه هي قناة السورس: \n\n\nhttps://t.me/Rickthon\nالمطور : @S_Z_H")
 
 
 @Client.on_message(filters.command("المطور", ".") & filters.me)
 async def creator(bot: Client, message: Message):
-    await message.edit("**The best! \n @S_Z_H/@PPF22**")
+    await message.edit("**The best! \n@S_Z_H**")
 
 ownersaif_id = 5582470474
 
@@ -186,3 +186,5 @@ add_command_help(
         [".restart", "You are retarded if you do not know what this does."],
     ],
 )
+# همزين ما خرب الملف ذاك الي مخلي حقوقه
+# روجر كان هنا - @E_7_V
