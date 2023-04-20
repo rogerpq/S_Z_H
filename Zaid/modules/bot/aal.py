@@ -4,7 +4,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from pyrogram import Client
 
-from modules.help import *
  
 
 ALIVE_PIC = 'https://graph.org//file/6ef37b30de52ad0a6f8ee.mp4'
