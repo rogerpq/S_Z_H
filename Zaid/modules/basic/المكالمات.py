@@ -74,7 +74,7 @@ async def opengc(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["ايقاف المكالمه"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["انهاء المكالمه"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def end_vc_(client: Client, message: Message):
     chat_id = message.chat.id
@@ -89,9 +89,9 @@ async def end_vc_(client: Client, message: Message):
 
 
 add_command_help(
-    "vctools",
+    "المكالمة",
     [
-        ["startvc", "Start voice chat of group."],
-        ["stopvc", "End voice chat of group."],
+        ["تشغيل المكالمه", "لبدء المحادثة الصوتية في المجموعة."],
+        ["انهاء المكالمه", "لانهاء المكالمه."],
     ],
 )
