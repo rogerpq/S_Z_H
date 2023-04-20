@@ -83,7 +83,7 @@ unmute_permissions = ChatPermissions(
 
 
 @Client.on_message(
-    filters.group & filters.command([" تعيين صوره الكروب", "تعيين صوره المجموعة"], ".") & filters.me
+    filters.group & filters.command([" تعيين صوره الكروب","تعيين صوره المجموعة"], ".") & filters.me
 )
 async def set_chat_photo(client: Client, message: Message):
     zuzu = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
@@ -112,7 +112,7 @@ async def member_ban(client: Client, message: Message):
     if not user_id:
         return await rd.edit("لايمكنني العثور على هاذا الشخص")
     if user_id == client.me.id:
-        return await rd.edit("تم حضره سيدي")
+        return await rd.edit("تم الحظر بنجاح عزيزي")
     if user_id in DEVS:
         return await rd.edit("ماتكدر تحظر المطورين حبي")
     if user_id in (await list_admins(client, message.chat.id)):
@@ -225,50 +225,50 @@ async def unmute(client: Client, message: Message):
     await rd.edit(f"تم الغاء الكتم ! {umention}")
 
 
-@Client.on_message(filters.command(["kick", "dkick"], ".") & filters.me)
+@Client.on_message(filters.command(["طرد", "بالنعال"], ".") & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جار...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit("ليس لدي صلاحيات!")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("لايمكنني الوصول الى الحساب.")
     if user_id == client.me.id:
-        return await rd.edit("I can't kick myself.")
+        return await rd.edit("لايمكنك طرد نفسك.")
     if user_id == DEVS:
-        return await rd.edit("I can't kick my developer.")
+        return await rd.edit("لايمكنك طرد المطور انجب تريد تطرد المطور.")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await rd.edit("I can't kick an admin, You know the rules, so do i.")
+        return await rd.edit("لايمكنك طرد مشرف انت تعرف قواعد التلي.")
     mention = (await client.get_users(user_id)).mention
     msg = f"""
-**Kicked User:** {mention}
-**Kicked By:** {message.from_user.mention if message.from_user else 'Anon'}"""
+**المطور:** {mention}
+**تم الطرد من قبل:** {message.from_user.mention if message.from_user else 'Anon'}"""
     if message.command[0][0] == "d":
         await message.reply_to_message.delete()
     if reason:
-        msg += f"\n**Reason:** `{reason}`"
+        msg += f"\n**السبب:** `{reason}`"
     try:
         await message.chat.ban_member(user_id)
         await rd.edit(msg)
         await asyncio.sleep(1)
         await message.chat.unban_member(user_id)
     except ChatAdminRequired:
-        return await rd.edit("**Maaf Anda Bukan admin**")
+        return await rd.edit("**اسف انت مو ادمن**")
 
 
 @Client.on_message(
-    filters.group & filters.command(["promote", "fullpromote"], ".") & filters.me
+    filters.group & filters.command(["رفع مشرف", "رفع ادمن"], ".") & filters.me
 )
 async def promotte(client: Client, message: Message):
     user_id = await extract_user(message)
     umention = (await client.get_users(user_id)).mention
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جار...`")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("لايمكنني الوصول لحساب.")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_promote_members:
-        return await rd.edit("I don't have enough permissions")
+        return await rd.edit("لا املك صلاحيات كاملة!")
     if message.command[0][0] == "f":
         await message.chat.promote_member(
             user_id,
@@ -283,7 +283,7 @@ async def promotte(client: Client, message: Message):
                 can_promote_members=True,
             ),
         )
-        return await rd.edit(f"Fully Promoted! {umention}")
+        return await rd.edit(f"تم رفعه مشرف بنجاح! {umention}")
 
     await message.chat.promote_member(
         user_id,
@@ -298,17 +298,17 @@ async def promotte(client: Client, message: Message):
             can_promote_members=False,
         ),
     )
-    await rd.edit(f"Promoted! {umention}")
+    await rd.edit(f"تم رفعه! {umention}")
 
 
-@Client.on_message(filters.group & filters.command("demote", ".") & filters.me)
+@Client.on_message(filters.group & filters.command("تنزيل مشرف", ".") & filters.me)
 async def demote(client: Client, message: Message):
     user_id = await extract_user(message)
-    rd = await message.edit_text("`Processing...`")
+    rd = await message.edit_text("`جار...`")
     if not user_id:
-        return await rd.edit("I can't find that user.")
+        return await rd.edit("لايمكنني الوصول لحساب.")
     if user_id == client.me.id:
-        return await rd.edit("I can't demote myself.")
+        return await rd.edit("لايمكنني انزال نفسي.")
     await message.chat.promote_member(
         user_id,
         privileges=ChatPrivileges(
@@ -323,42 +323,42 @@ async def demote(client: Client, message: Message):
         ),
     )
     umention = (await client.get_users(user_id)).mention
-    await rd.edit(f"Demoted! {umention}")
+    await rd.edit(f"تم تنزيله! {umention}")
 
 
 add_command_help(
-    "admin",
+    "الادمن",
     [
-        ["ban [reply/username/userid]", "Ban someone."],
+        ["حظر [بالرد/بالمعرف/بالايدي]", "لحظر شخص."],
         [
-            f"unban [reply/username/userid]",
-            "Unban someone.",
+            f"الغاء حظر [بالرد/بالمعرف/بالايدي]",
+            "الغاء حظر شخص.",
         ],
-        ["kick [reply/username/userid]", "kick out someone from your group."],
+        ["طرد [بالرد/بالمعرف/بالايدي]", "طرد شخص من كروب."],
         [
-            f"promote `or` .fullpromote",
-            "Promote someone.",
+            f"رفع مشرف `او` .رفع ادمن",
+            "لرفع شخص.",
         ],
-        ["demote", "Demote someone."],
+        ["تنزيل مشرف", "لتنزيل شخص."],
         [
-            "mute [reply/username/userid]",
-            "Mute someone.",
-        ],
-        [
-            "unmute [reply/username/userid]",
-            "Unmute someone.",
+            "كتم [بالرد/بالمعرف/بالايدي]",
+            "لكتم شخص.",
         ],
         [
-            "pin [reply]",
-            "to pin any message.",
+            "الغاء الكتم [بالرد/بالمعرف/بالايدي]",
+            "الغاء كتم شخص.",
         ],
         [
-            "unpin [reply]",
-            "To unpin any message.",
+            "تثبيت [بالرد]",
+            "لتثبيت رساله.",
         ],
         [
-            "setgpic [reply ke image]",
-            "To set an group profile pic",
+            "الغاء التثبيت [بالرد]",
+            "لالغاء تثبيت رساله.",
+        ],
+        [
+            "تعيين صوره المجموعة او تعيين صوره الكروب [بالرد على صورة]",
+            "لتغير صورة الكروب",
         ],
     ],
 )
