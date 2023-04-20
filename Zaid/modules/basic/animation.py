@@ -121,7 +121,7 @@ async def _(client: Client, message: Message):
     reply_text = NOBLE[noble]
     await edit_or_reply(message, reply_text)
 
-
+#شعدك بلملف ابو الوصخ
 @Client.on_message(filters.command("غمزة", ".") & filters.me)
 async def wink(client: Client, message: Message):
     hmm_s = "https://some-random-api.ml/animu/wink"
@@ -481,7 +481,7 @@ async def ngefuck(client: Client, message: Message):
         ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')\n         \\                        /\n          \\                _.•´\n            \\              (\n              \\  "
     )
 
-
+#المطور سيف
 @Client.on_message(filters.command("تهكير", ".") & filters.me)
 async def hak(client: Client, message: Message):
     await message.edit_text("Looking for WhatsApp databases in targeted person...")
@@ -978,7 +978,7 @@ async def nahlove(client: Client, message: Message):
     await asyncio.sleep(2)
     await typew.edit("`\n(\\_/)`" "`\n(●_●)`")
 
-
+#rickthon
 @Client.on_message(filters.command("ابتزاز", ".") & filters.me)
 async def santet(client: Client, message: Message):
     typew = await edit_or_reply(message, "`Enabling Online Witchcraft Command....`")
@@ -1336,12 +1336,12 @@ add_command_help(
             "ارسال متحركات طوبة",
         ],
         [
-            "ganstar",
-            "Animation Gangster",
+            "حرك",
+            "لحرك شخص",
         ],
         [
-            "charge",
-            " Tesla animation charging",
+            "شحن",
+            "ارسال انميشن شحن تيسلا",
         ],
     ],
 )
