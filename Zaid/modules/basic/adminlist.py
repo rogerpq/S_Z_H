@@ -120,7 +120,7 @@ async def report_admin(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["everyone", "mentionall"], "."))
+@Client.on_message(filters.me & filters.command(["الكل", "mentionall"], "."))
 async def tag_all_users(client: Client, message: Message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -178,17 +178,16 @@ async def get_list_bots(client: Client, message: Message):
 
 
 add_command_help(
-    "tag",
+    "المجموعة",
     [
-        [f".admins", "Get chats Admins list."],
-        [f".kickdel or .zombies", "To Kick deleted Accounts."],
+        [f".المشرفين", "لرؤيه المشرفين في المجموغة."],
         [
-            f".everyone `or` .mentionall",
-            "to mention Everyone ",
+            f".الكل",
+            "لمنشن الكل",
         ],
         [
-            f".botlist",
-            "To get Chats Bots list",
+            f".البوتات",
+            "لرؤيه البوتات في المجموعة",
         ],
     ],
 )
