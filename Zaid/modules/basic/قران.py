@@ -10,7 +10,8 @@ from datetime import datetime
 
 
 
-
+#حتى تريد تخمط امر قران بعد الله شيسوي بيك
+#DEV SAIF
 
 @Client.on_message(filters.command('قرأن','.') & filters.me)
 async def chat_broadcast(c: Client, m: Message,online=False):
@@ -34,3 +35,10 @@ async def chat_broadcast(c: Client, m: Message,online=False):
     except Exception as e:
      await m.reply(e)
   await asyncio.sleep(86400)
+
+add_command_help(
+    "انتحال",
+    [
+        ["قرأن", "لارسال قران."],
+    ],
+)
