@@ -131,23 +131,23 @@ async def updateme_requirements():
         return repr(e)
 
 
-@Client.on_message(filters.command("تحديث", ".") & filters.me)
+@Client.on_message(filters.command("update", ".") & filters.me)
 async def upstream(client: Client, message: Message):
-    status = await message.edit_text("`يتم البحث عن التحديثات انتضر...`")
+    status = await message.edit_text("`Checking for Updates, Wait a Moment...`")
     conf = get_arg(message)
     off_repo = UPSTREAM_REPO_URL
     try:
         txt = (
-            "**تعذر استمرار التحديث بسبب "
-            + "حدثت عدة مشاكل**\n\n**الخطاء:**\n"
+            "**Update Could Not Continue Due "
+            + "Several ERROR Occurred**\n\n**LOGTRACE:**\n"
         )
         repo = Repo()
     except NoSuchPathError as error:
-        await status.edit(f"{txt}\n `{error}` **لايمكن العثور على الدليل.**")
+        await status.edit(f"{txt}\n**Directory** `{error}` **Can not be found.**")
         repo.__del__()
         return
     except GitCommandError as error:
-        await status.edit(f"{txt}\n**فشل مبكر!** `{error}`")
+        await status.edit(f"{txt}\n**Early failure!** `{error}`")
         repo.__del__()
         return
     except InvalidGitRepositoryError:
@@ -165,7 +165,7 @@ async def upstream(client: Client, message: Message):
     ac_br = repo.active_branch.name
     if ac_br != BRANCH:
         await status.edit(
-            f"**[UPDATER]:** عزيزي يبدو انك تستخدم برانشك المخصص ({ac_br}). في هذه الحالة ، يتعذر على المحدث تحديد الفرع الذي سيتم دمجه. يرجى الخروج إلى الفرع الرئيسي "
+            f"**[UPDATER]:** `Looks like you are using your own custom branch ({ac_br}). in that case, Updater is unable to identify which branch is to be merged. please checkout to main branch`"
         )
         repo.__del__()
         return
@@ -178,27 +178,27 @@ async def upstream(client: Client, message: Message):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if "deploy" not in conf:
         if changelog:
-            changelog_str = f"**التحديث متاح في برانش [{ac_br}]:\n\nالمتغيرات:**\n\n`{changelog}`"
+            changelog_str = f"**Update Available For Branch [{ac_br}]:\n\nCHANGELOG:**\n\n`{changelog}`"
             if len(changelog_str) > 4096:
-                await status.edit("**سجل التغيير كبير جدًا ، تم إرساله كملف..**")
+                await status.edit("**Changelog too big, sent as file.**")
                 file = open("output.txt", "w+")
                 file.write(changelog_str)
                 file.close()
                 await client.send_document(
                     message.chat.id,
                     "output.txt",
-                    caption=f"**اكتب** `.تحديث ` **لتحديث السورس.**",
+                    caption=f"**Type** `.update deploy` **To Update Userbot.**",
                     reply_to_message_id=status.id,
                 )
                 remove("output.txt")
             else:
                 return await status.edit(
-                    f"{changelog_str}\n**اكتب** `.تحديث` **لتحديث السورس.**",
+                    f"{changelog_str}\n**Type** `.update deploy` **To Update Userbot.**",
                     disable_web_page_preview=True,
                 )
         else:
             await status.edit(
-                f"\n`بوتك الخاص `  **محدث**  `في برانش`  **[{ac_br}]**\n",
+                f"\n`Your BOT is`  **up-to-date**  `with branch`  **[{ac_br}]**\n",
                 disable_web_page_preview=True,
             )
             repo.__del__()
@@ -211,7 +211,7 @@ async def upstream(client: Client, message: Message):
         heroku_applications = heroku.apps()
         if not HEROKU_APP_NAME:
             await status.edit(
-                "`يرجى وضع فار HEROKU_APP_NAME لتحديث السورس.`"
+                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
             )
             repo.__del__()
             return
@@ -221,12 +221,12 @@ async def upstream(client: Client, message: Message):
                 break
         if heroku_app is None:
             await status.edit(
-                f"{txt}\n`بيانات اعتماد Heroku غير صالحة لتحديث userbot dyno.`"
+                f"{txt}\n`Invalid Heroku credentials for updating userbot dyno.`"
             )
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: جار تحديث سورس ريك ثون يرجى الانتضار...`"
+            "`[HEROKU]: RICKTHON-Userbot Deploy Update is in Progress...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -243,7 +243,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "**تم تحديث سورس ريك ثون بنجاح! \n يمكنك استخدام السورس الان.**"
+            "`RICKTHON-Userbot Successfully Updated! Userbot can be used again.`"
         )
     else:
         try:
@@ -252,27 +252,27 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "**تم تحديث سورس ريك ثون بنجاح! \n يمكنك استخدام السورس الان.**",
+            "`RICKTHON-Userbot Successfully Updated! Userbot can be used again.`",
         )
-        args = [sys.executable, "-m", "zaid"]
+        args = [sys.executable, "-m", "Zaid"]
         execle(sys.executable, *args, environ)
         return
 
 
-@Client.on_message(filters.command(["تحديث الان", "update now", "تحديث سريع"], ".") & filters.me)
+@Client.on_message(filters.command("goupdate", ".") & filters.me)
 async def updatees(client: Client, message: Message):
     if await is_heroku():
-        if HEROKU_APP is None:
+        if HAPP is None:
             return await message.edit_text(
-                "يرجى التأكد من فارات HEROKU_API_KEY و HEROKU_APP_NAME في هيروكو",
+                "Make sure your HEROKU_API_KEY and HEROKU_APP_NAME are configured correctly in heroku config vars",
             )
-    response = await message.edit_text("بحث عن تحديثات...")
+    response = await message.edit_text("Checking for available updates...")
     try:
         repo = Repo()
     except GitCommandError:
-        return await response.edit("حدث خطاء في الامر")
+        return await response.edit("Git Command Error")
     except InvalidGitRepositoryError:
-        return await response.edit("خطاء في سحب الريبو")
+        return await response.edit("Invalid Git Repsitory")
     to_exc = f"git fetch origin {BRANCH} &> /dev/null"
     await bash(to_exc)
     await asyncio.sleep(7)
@@ -281,7 +281,7 @@ async def updatees(client: Client, message: Message):
     for checks in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
         verification = str(checks.count())
     if verification == "":
-        return await response.edit("عزيزي السورس محدث اخر اصدار ولا يوجد تحديثات!")
+        return await response.edit("Bot is up-to-date!")
     updates = ""
     ordinal = lambda format: "%d%s" % (
         format,
@@ -289,12 +289,12 @@ async def updatees(client: Client, message: Message):
     )
     for info in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
         updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>يوجد تحديث جديد للبوت!</b>\n\n➣ تطبيق التحديثات الان</code>\n\n**<u>التحديثات:</u>**\n\n"
+    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await PasteBin(updates)
         nrs = await response.edit(
-            f"<b>يوجد تحديث جديد للبوت!</b>\n\n➣ تطبيق التحديثات الان</code>\n\n**<u>التحديثات:</u>**\n\n[اضغط هنا لمعرفة التحديثات]({url})"
+            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
         )
     else:
         nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
@@ -302,14 +302,14 @@ async def updatees(client: Client, message: Message):
     if await is_heroku():
         try:
             await response.edit(
-                f"{nrs.text}\n\nتم تحديث سورس ريك ثون بنجاح ، يرجى انتضار 3 - 5 دقائق لاعادة التشغيل!"
+                f"{nrs.text}\n\nBot was updated successfully on Heroku! Now, wait for 2 - 3 mins until the bot restarts!"
             )
             await bash(
                 f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
             )
             return
         except Exception as err:
-            return await response.edit(f"{nrs.text}\n\nخطاء: <code>{err}</code>")
+            return await response.edit(f"{nrs.text}\n\nERROR: <code>{err}</code>")
     else:
         await bash("pip3 install -r requirements.txt")
         restart()
@@ -317,9 +317,9 @@ async def updatees(client: Client, message: Message):
 
 
 add_command_help(
-    "تحديث",
+    "update",
     [
-        ["تحديث", "لمشاهده قائمة اخر التحديثات ."],
-        ["تحديث الان", "لتحديث السورس."],
+        ["update", "To see a list of the latest updates from Zaid-Userbot."],
+        ["update deploy", "To update userbot."],
     ],
 )
