@@ -5,36 +5,36 @@ from Zaid import SUDO_USER
 from Zaid.modules.help import add_command_help
 
 @Client.on_message(
-    filters.command(["join"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["انضمام"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def join(client: Client, message: Message):
     tex = message.command[1] if len(message.command) > 1 else message.chat.id
     g = await message.reply_text("`Processing...`")
     try:
         await client.join_chat(tex)
-        await g.edit(f"**Successfully Joined Chat ID** `{tex}`")
+        await g.edit(f"**تم الانضمام بنجاح ايدي الشات** `{tex}`")
     except Exception as ex:
-        await g.edit(f"**ERROR:** \n\n{str(ex)}")
+        await g.edit(f"**خطاء:** \n\n{str(ex)}")
 
 
 @Client.on_message(
-    filters.command(["leave"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["مغادرة"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def leave(client: Client, message: Message):
     xd = message.command[1] if len(message.command) > 1 else message.chat.id
-    xv = await message.reply_text("`Processing...`")
+    xv = await message.reply_text("`جار...`")
     try:
-        await xv.edit_text(f"{client.me.first_name} has left this group, bye!!")
+        await xv.edit_text(f"{client.me.first_name} لقد غادر هذه المجموعة، إلى اللقاء!!")
         await client.leave_chat(xd)
     except Exception as ex:
-        await xv.edit_text(f"**ERROR:** \n\n{str(ex)}")
+        await xv.edit_text(f"**الخطاء:** \n\n{str(ex)}")
 
 
 @Client.on_message(
-    filters.command(["leaveallgc"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["مغادره كل المجموعات"], ".") & (filters.me | filters.user(SUDO_USER))
 )
 async def kickmeall(client: Client, message: Message):
-    tex = await message.reply_text("`Global Leave from group chats...`")
+    tex = await message.reply_text("`جار المغادره في كل المجموعات...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -46,13 +46,13 @@ async def kickmeall(client: Client, message: Message):
             except BaseException:
                 er += 1
     await tex.edit(
-        f"**Successfully left {done} Groups, Failed to left {er} Groups**"
+        f"**تم بنجاح المغادره في {done} المجموعات, خطاء في مغادره {er} المجموعات**"
     )
 
 
-@Client.on_message(filters.command(["leaveallch"], ".") & filters.me)
+@Client.on_message(filters.command(["مغادره كل القنوات"], ".") & filters.me)
 async def kickmeallch(client: Client, message: Message):
-    ok = await message.reply_text("`Global Leave from group chats...`")
+    ok = await message.reply_text("`جار المغادره في كل القنوات...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -64,20 +64,20 @@ async def kickmeallch(client: Client, message: Message):
             except BaseException:
                 er += 1
     await ok.edit(
-        f"**Successfully left {done} Channel, failed to left {er} Channel**"
+        f"**تم بنجاح المغادره في {done} القنوات, خطاء في مغادره {er} المجموعات**"
     )
 
 
 add_command_help(
-    "joinleave",
+    "انضمام والمغادره",
     [
         [
-            "kickme",
-            "To leave!!.",
+            "اطردني",
+            "للمغادرة!!.",
         ],
-        ["leaveallgc", "to leave all groups where you joined."],
-        ["leaveallch", "to leaveall channel where you joined."],
-        ["join [Username]", "give an specific username to join."],
-        ["leave [Username]", "give an specific username to leave."],
+        ["مغادره كل المجموعات", "لمغادره كل المجموعات التي بحسابك."],
+        ["مغادره كل القنوات", "لمغادره كل القنوات بحسابك."],
+        ["انضمام + [يوزر القناة او مجموعة]", "لانضمام في مجموعة او قناة محدده."],
+        ["مغادرة [يوزر القناة او المجموعة]", "لمغادرة في مجموعة او قناة محددة."],
     ],
 )
