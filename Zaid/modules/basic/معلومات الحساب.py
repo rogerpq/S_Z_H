@@ -7,7 +7,7 @@ from Zaid.modules.help import *
 
 @Client.on_message(filters.command(["معلوماتي", "معلومات حسابي"], ".") & filters.me)
 async def stats(client: Client, message: Message):
-    Man = await message.edit_text("`Collecting stats...`")
+    Man = await message.edit_text("`جار جمع الاحصائيات...`")
     start = datetime.now()
     u = 0
     g = 0
@@ -43,15 +43,15 @@ async def stats(client: Client, message: Message):
 `لديك {} مجموعه خارقه .`
 `لديك {} قناة .`
 `انت ادمن في {} دردشه .`
-`Bots = {}`""".format(
+`البوتات = {}`""".format(
             ms, u, g, sg, c, a_chat, b
         )
     )
 
 
 add_command_help(
-    "stats",
+    "معلوماتي",
     [
-        ["stats", "to check your account status."],
+        ["معلوماتي", "لارسال احصائيات حسابك."],
     ],
 )
