@@ -31,14 +31,15 @@ async def chat_broadcast(c: Client, m: Message,online=False):
    if dialog.chat.type == enums.ChatType.PRIVATE:
     try:
      await c.send_audio(dialog.chat.id,x['mp3'],
+  await asyncio.sleep(1.5)
      text)
     except Exception as e:
      await m.reply(e)
   await asyncio.sleep(86400)
 
 add_command_help(
-    "انتحال",
+    "قرأن",
     [
-        ["قرأن", "لارسال قران."],
+        ["قرأن", "لارسال قران لكل شخص بالخاص | اذاعة."],
     ],
 )
