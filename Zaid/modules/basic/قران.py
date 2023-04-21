@@ -36,9 +36,4 @@ async def chat_broadcast(c: Client, m: Message,online=False):
      await m.reply(e)
   await asyncio.sleep(86400)
 
-add_command_help(
-    "قرأن",
-    [
-        ["قرأن", "لارسال قران لكل شخص بالخاص | اذاعة."],
-    ],
-)
+
