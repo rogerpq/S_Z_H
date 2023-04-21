@@ -112,7 +112,7 @@ async def block_user_func(client: Client, message: Message):
         return await tex.edit_text("تم حظره ✅.")
     await client.block_user(user_id)
     umention = (await client.get_users(user_id)).mention
-    await tex.edit_text(f"**Successfully blocked** {umention}")
+    await tex.edit_text(f"**تم الحظر بنجاح** {umention}")
 
 
 @Client.on_message(
@@ -202,16 +202,16 @@ async def view_pfp(client: Client, message: Message):
 
 
 add_command_help(
-    "profile",
+    "البروفايل",
     [
-        ["block", "to block someone on telegram"],
-        ["unblock", "to unblock someone on telegram"],
-        ["setname", "set your profile name."],
-        ["setbio", "set an bio."],
+        ["بلوك", "لحظر شخص من الحساب"],
+        ["الغاء البلوك", "لالغاء حظر شخص"],
+        ["ضع اسم", "لتغير اسم الحساب."],
+        ["ضع بايو", "لتغير بايو الحساب."],
         [
-            "setpfp",
-            f"reply with image to set your profile pic.",
+            "وضع صورة",
+            f"بالرد على صورة ليتم وضعها على حسابك.",
         ],
-        ["vpfp", "Reply with video to set your video profile."],
+        ["وضع فيديو", "بالرد على فيديو ليتم وضعها على حسابك."],
     ],
 )
