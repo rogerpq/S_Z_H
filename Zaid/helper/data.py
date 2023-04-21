@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, WebAppInfo
 class Data:
 
     text_help_menu = (
-        "**قائمة الاوامر!**\n**— حط بدايه كل امر:** `.`"
+        "**قائمة الاوامر !**\n**— حط بدايه كل امر :** `.`"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
