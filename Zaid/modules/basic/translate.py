@@ -47,9 +47,9 @@ async def pytrans_tr(_, message: Message):
   # Parse the translation message
   if translation["status"] == "success":
     tred_txt = f"""
-**Translation Engine**: `{translation["engine"]}`
-**Translated to:** `{translation["dest_lang"]}`
-**Translation:**
+**المترجم**: `{translation["engine"]}`
+**الترجمه الى :** `{translation["dest_lang"]}`
+**الترجمة:**
 `{translation["translation"]}`
 """
     if len(tred_txt) > 4096:
@@ -64,7 +64,7 @@ async def pytrans_tr(_, message: Message):
       await tr_msg.edit(tred_txt)
 
 add_command_help(
-    "translate",
+    "الترجمة",
     [
         [".ترجم", "ترجمة بعض النصوص بإعطاء نص أو الرد على هذا النص"],
     ],
