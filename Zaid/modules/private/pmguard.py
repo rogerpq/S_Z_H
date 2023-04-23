@@ -29,7 +29,7 @@ def get_arg(message):
 
 
 @Client.on_message(filters.command("ضع عدد التحذيرات", ["."]) & filters.me)
-async def pmguard(client, message):
+async def pmguardnum(client, message):
     arg = get_arg(message)
     if not arg:
         await message.edit("**اضع تحذيرات لشنو?**")
