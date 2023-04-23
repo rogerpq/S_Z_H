@@ -8,7 +8,7 @@ from Zaid.helper.interval import IntervalHelper
 
 
 async def CheckAdmin(message: Message):
-    """Check if we are an admin."""
+    """التحقق اذا كنت انا ادمن ام لا."""
     admin = "administrator"
     creator = "creator"
     ranks = [admin, creator]
@@ -18,7 +18,7 @@ async def CheckAdmin(message: Message):
     )
 
     if SELF.status not in ranks:
-        await message.edit("__I'm not Admin!__")
+        await message.edit("__انا لست ادمن!__")
         await asyncio.sleep(2)
         await message.delete()
 
@@ -28,19 +28,19 @@ async def CheckAdmin(message: Message):
         elif SELF.can_restrict_members:
             return True
         else:
-            await message.edit("__No Permissions to restrict Members__")
+            await message.edit("__ما عندك صلاحية لتقييد الاعضاء عزيزي__")
             await asyncio.sleep(2)
             await message.delete()
 
 
 async def CheckReplyAdmin(message: Message):
-    """Check if the message is a reply to another user."""
+    """تحقق مما إذا كانت الرسالة ردا على مستخدم آخر."""
     if not message.reply_to_message:
-        await message.edit("The command needs to be a reply")
+        await message.edit("يجب عليك الرد على مستخدم")
         await asyncio.sleep(2)
         await message.delete()
     elif message.reply_to_message.from_user.is_self:
-        await message.edit(f"I can't {message.command[0]} myself.")
+        await message.edit(f"لايمكنني {message.command[0]} نفسي.")
         await asyncio.sleep(2)
         await message.delete()
     else:
@@ -63,6 +63,6 @@ async def TimerString(message: Message):
 
 
 async def RestrictFailed(message: Message):
-    await message.edit(f"I can't {message.command} this user.")
+    await message.edit(f"لايمكنني {message.command} هذا المستخدم.")
     await asyncio.sleep(2)
     await message.delete()
