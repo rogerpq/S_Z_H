@@ -28,37 +28,37 @@ def get_arg(message):
     return " ".join(split[1:])
 
 
-@Client.on_message(filters.command("setlimit", ["."]) & filters.me)
+@Client.on_message(filters.command("ضع عدد التحذيرات", ["."]) & filters.me)
 async def pmguard(client, message):
     arg = get_arg(message)
     if not arg:
-        await message.edit("**Set limit to what?**")
+        await message.edit("**اضع تحذيرات لشنو?**")
         return
     await Zaid.set_limit(int(arg))
-    await message.edit(f"**Limit set to {arg}**")
+    await message.edit(f"**تم تعيين عدد التحذيرات الى {arg}**")
 
+#هاي
 
-
-@Client.on_message(filters.command("setblockmsg", ["."]) & filters.me)
+@Client.on_message(filters.command("ضع رسالة الحظر", ["."]) & filters.me)
 async def setpmmsg(client, message):
     arg = get_arg(message)
     if not arg:
-        await message.edit("**What message to set**")
+        await message.edit("**ماهي الرساله التي يجب تعيينها؟**")
         return
     if arg == "default":
         await Zaid.set_block_message(Zaid.BLOCKED)
-        await message.edit("**Block message set to default**.")
+        await message.edit("**تم ارجاع الرساله القديمه**.")
         return
     await Zaid.set_block_message(f"`{arg}`")
     await message.edit("**Custom block message set**")
 
-
-@Client.on_message(filters.command(["allow", "ap", "approve", "a"], ["."]) & filters.me & filters.private)
+#king saif
+@Client.on_message(filters.command(["سماح", "س", "قبول", "ق"], ["."]) & filters.me & filters.private)
 async def allow(client, message):
     chat_id = message.chat.id
     pmpermit, pm_message, limit, block_message = await Zaid.get_pm_settings()
     await Zaid.allow_user(chat_id)
-    await message.edit(f"**I have allowed [you](tg://user?id={chat_id}) to PM me.**")
+    await message.edit(f"**تم السماح لـ [you](tg://user?id={chat_id}) ليرسل رسائل.**")
     async for message in client.search_messages(
         chat_id=message.chat.id, query=pm_message, limit=1, from_user="me"
     ):
@@ -66,11 +66,11 @@ async def allow(client, message):
     USERS_AND_WARNS.update({chat_id: 0})
 
 
-@Client.on_message(filters.command(["deny", "dap", "disapprove", "dapp"], ["."]) & filters.me & filters.private)
+@Client.on_message(filters.command(["رفض", "مو مقبول"], ["."]) & filters.me & filters.private)
 async def deny(client, message):
     chat_id = message.chat.id
     await Zaid.deny_user(chat_id)
-    await message.edit(f"**I have denied [you](tg://user?id={chat_id}) to PM me.**")
+    await message.edit(f"**تم رفض المستخدم [you](tg://user?id={chat_id}) من الارسال لي.**")
 
 
 @Client.on_message(
