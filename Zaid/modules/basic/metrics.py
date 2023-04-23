@@ -1,5 +1,8 @@
-import time
 
+
+import time
+#kiNg Dragon
+#KinG @Rickthon
 from pyrogram import filters, Client
 from pyrogram.types import Message
 
@@ -11,16 +14,16 @@ class Custom(dict):
         return 0
 
 
-@Client.on_message(filters.command("wordcount", ".") & filters.me)
+@Client.on_message(filters.command("الكلمات المشهوره", ".") & filters.me)
 async def word_count(bot: Client, message: Message):
     await message.delete()
     words = Custom()
-    progress = await bot.send_message(message.chat.id, "`Processed 0 messages...`")
+    progress = await bot.send_message(message.chat.id, "`معالجة 0 رسائل`")
     total = 0
-    async for msg in bot.iter_history(message.chat.id, 1000):
+    async for msg in bot.iter_history(message.chat.id, 10000):
         total += 1
         if total % 100 == 0:
-            await progress.edit_text(f"`Processed {total} messages...`")
+            await progress.edit_text(f"`تمت معالجة {total} من الرسائل`")
             time.sleep(0.5)
         if msg.text:
             for word in msg.text.split():
@@ -30,19 +33,19 @@ async def word_count(bot: Client, message: Message):
                 words[word.lower()] += 1
     freq = sorted(words, key=words.get, reverse=True)
     out = "Word Counter\n"
-    for i in range(25):
+    for i in range(30):
         out += f"{i + 1}. **{words[freq[i]]}**: {freq[i]}\n"
 
     await progress.edit_text(out)
 
 
 add_command_help(
-    "metrics",
+    "الكلمات المشهوره",
     [
         [
-            ".wordcount",
-            "Finds the 25 most used words in the last 1000 messages in a group or private chat. Use in "
-            "chat you want to find the metric in.",
+            ".الكلمات المشهوره",
+            "اهلا عزيزي , اهميه الامر يضهر لك 30 كلمه مشهوره من بين عشره الاف رساله !"
+            "والدردشه الذي تريد العثور على الكلمات المشهوره فيها",
         ],
     ],
 )
