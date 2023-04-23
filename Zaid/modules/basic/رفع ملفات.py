@@ -24,7 +24,7 @@ async def upload_helper(bot: Client, message: Message):
 
 
 add_command_help(
-    "upload",
+    "الرفع",
     [
         [".رفع ملف", "قم بارسال ملف بصيغه بايثون ومكتبه  PyroGram ثم رد عليه بكلمه  .رفع ملف"],
     ],
