@@ -1,5 +1,4 @@
-
-
+#مخصص لريكثون
 import time
 #kiNg Dragon
 #KinG @Rickthon
@@ -32,7 +31,7 @@ async def word_count(bot: Client, message: Message):
             for word in msg.caption.split():
                 words[word.lower()] += 1
     freq = sorted(words, key=words.get, reverse=True)
-    out = "Word Counter\n"
+    out = "عداد الكلمات\n"
     for i in range(30):
         out += f"{i + 1}. **{words[freq[i]]}**: {freq[i]}\n"
 
