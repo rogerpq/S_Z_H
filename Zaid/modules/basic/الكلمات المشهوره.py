@@ -19,7 +19,7 @@ async def word_count(bot: Client, message: Message):
     words = Custom()
     progress = await bot.send_message(message.chat.id, "`معالجة 0 رسائل`")
     total = 0
-    async for msg in bot.iter_history(message.chat.id, 10000):
+    async for msg in bot.iter_history(message.chat.id, 40):
         total += 1
         if total % 100 == 0:
             await progress.edit_text(f"`تمت معالجة {total} من الرسائل`")
