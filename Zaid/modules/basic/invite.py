@@ -7,6 +7,8 @@ from pyrogram.errors.exceptions.flood_420 import FloodWait
 
 from Zaid.modules.help import add_command_help
 
+#السيد سيف
+#كافي ابو الوصخ بس تخمط شويه طور من روحك
 
 @Client.on_message(
     filters.command(["ضيف"], ".") & (filters.me | filters.user(SUDO_USER))
