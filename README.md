@@ -87,12 +87,13 @@ and you ended up in a Finale Battle with Telegram and at the end
     I will be rolling on the floor laughing at you.
 ```
 
-## Credits 💖
+``` Credits 💖
 - SAIF
 - MOHAMED
 - DRAGON
 - HUSSAIN
-- PYROGRAM ⚡
+- PYROGRAM ⚓️
+```
 
 ## Support / Channel
 
