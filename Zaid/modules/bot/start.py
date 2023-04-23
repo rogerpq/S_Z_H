@@ -9,7 +9,7 @@ from pyrogram import *
 from pyrogram.types import * 
 
 PHONE_NUMBER_TEXT = (
-    "✘ أهلًا بك عزيزي 👋!\n\n✘ أنا المساعد الخاص بك?\n\n‣ أنا أستطيع مساعدتك في معرفة أوامر السورس.\n\n‣ المطور: @S_Z_H \n\n‣ شكرًا لك لتنصيب ريك ثون\n\n‣ ارسل /clone {لارسال كود بايروجرام الخاص بك}"
+    "✘ أهلًا بك عزيزي 👋!\n\n✘ أنا المساعد الخاص بك?\n\n‣ أنا أستطيع مساعدتك في معرفة أوامر السورس.\n\n‣ المطور: @S_Z_H \n\n‣ شكرًا لك لتنصيب ريك ثون\n\n‣ ارسل /clone {ارسل كود بايروجرام الخاص بك}"
 )
 
 @app.on_message(filters.user(OWNER_ID) & filters.command("start"))
@@ -29,7 +29,7 @@ async def hello(client: app, message):
 @app.on_message(filters.user(OWNER_ID) & filters.command("clone"))
 async def clone(bot: app, msg: Message):
     chat = msg.chat
-    text = await msg.reply("Usage:\n\n /clone session")
+    text = await msg.reply("طريقة الاستخدام:\n\n /clone سشنك")
     cmd = msg.command
     phone = msg.command[1]
     try:
