@@ -99,7 +99,7 @@ async def phase4(message):
         await _wrap_edit(message, heart_matrix)
         await asyncio.sleep(SLEEP)
 
-
+#RICKTHON 
 @Client.on_message(filters.command(["حبي", "ايلافيو"], ".") & filters.me)
 async def hearts(client: Client, message: Message):
     await phase1(message)
@@ -112,7 +112,7 @@ async def hearts(client: Client, message: Message):
     await asyncio.sleep(3)
     await message.edit("❤️ I Love You <3")
 
-
+#SAID
 @Client.on_message(
     filters.me & (filters.command(["احبك"], ".") | filters.regex("^loveyou "))
 )
@@ -130,6 +130,7 @@ async def wink(client: Client, message: Message):
     await client.send_video(message.chat.id, image_s)
     await message.delete()
 
+#S_Z_H
 
 @Client.on_message(filters.command("حضن", ".") & filters.me)
 async def hug(client: Client, message: Message):
@@ -139,6 +140,7 @@ async def hug(client: Client, message: Message):
     await client.send_video(message.chat.id, image_s)
     await message.delete()
 
+#RICKTHON USERBOT
 
 @Client.on_message(filters.command("ربت", ".") & filters.me)
 async def pat(client: Client, message: Message):
@@ -148,6 +150,7 @@ async def pat(client: Client, message: Message):
     await client.send_video(message.chat.id, image_s)
     await message.delete()
 
+#اخمط اخمط شايفك
 
 @Client.on_message(filters.command("بيكاتشو", ".") & filters.me)
 async def pikachu(client: Client, message: Message):
@@ -163,7 +166,7 @@ async def pikachu(client: Client, message: Message):
         return
     await message.delete()
 
-
+#هههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه 
 @Client.on_message(filters.command("همم", ".") & filters.me)
 async def hello_world(client: Client, message: Message):
     mg = await edit_or_reply(
@@ -305,7 +308,7 @@ async def gahah(client: Client, message: Message):
         await asyncio.sleep(animation_interval)
         await message.edit(animation_chars[i % 12])
 
-
+#هلو
 @Client.on_message(filters.command("واتفاك", ".") & filters.me)
 async def gagahkah(client: Client, message: Message):
     if message.forward_from:
