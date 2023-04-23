@@ -7,7 +7,7 @@ from Zaid.helper.basic import edit_or_reply
 from Zaid.helper.parser import mention_html, mention_markdown
 from Zaid.modules.help import *
 
-
+#S_Z_H
 @Client.on_message(filters.me & filters.command(["المشرفين", "قائمة المشرفين"], "."))
 async def adminlist(client: Client, message: Message):
     replyid = None
