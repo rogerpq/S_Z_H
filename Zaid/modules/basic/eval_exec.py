@@ -10,6 +10,7 @@ from pyrogram.types import Message
 from Zaid.database import cli as database
 from Zaid.helper.PyroHelpers import ReplyCheck
 
+#DEV SAIF
 
 @Client.on_message(
     filters.command("تجربة", ".")
