@@ -7,7 +7,7 @@ from Zaid import SUDO_USER
 from Zaid.helper.PyroHelpers import ReplyCheck
 from Zaid.modules.help import add_command_help
 
-
+#جميع الحقوق محفوظة لسورس ريك ثون
 @Client.on_message(
     filters.command(["اغاني", "ميوزك"], ".") & (filters.me | filters.user(SUDO_USER))
 )
