@@ -45,7 +45,7 @@ async def setpmmsg(client, message):
     if not arg:
         await message.edit("**ماهي الرساله التي يجب تعيينها؟**")
         return
-    if arg == "default":
+    if arg == "الرسالة العادية":
         await Zaid.set_block_message(Zaid.BLOCKED)
         await message.edit("**تم ارجاع الرساله القديمه**.")
         return
