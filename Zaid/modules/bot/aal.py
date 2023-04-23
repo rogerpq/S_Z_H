@@ -1,14 +1,13 @@
+from pyrogram import Client
 from pyrogram import filters
 from pyrogram import __version__ as pyro_vr
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
-from pyrogram import Client
 from Zaid import app
 
  
 
 ALIVE_PIC = 'https://graph.org//file/6ef37b30de52ad0a6f8ee.mp4'
-@app.on_message(filters.command(["awake", "alive"], [".", "!"]))
+@app.on_message(filters.user(OWNER_ID) & filters.command(["awake", "alive"], [".", "!"]))
 async def allive(client: Client, e: Message):
     try:
         me = await client.get_me()
