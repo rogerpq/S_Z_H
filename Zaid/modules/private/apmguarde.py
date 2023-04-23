@@ -40,7 +40,7 @@ add_command_help(
     [
         [".حماية الخاص [تفعيل او ايقاف]", " -> لتشغيل حماية الخاص او اطفاء حماية الخاص."],
         [".ضع رسالة التحذير [الرسالة او الرسالة العادية]", " -> لوضع رسالة ترحيب خاصة بك."],
-        [".ضع رسالة الحظر [message or default]", "-> Sets custom block message."],
+        [".ضع رسالة الحظر [الرسالة او الرسالة العادية]", "-> لوضع رسالة حظر خاصة بك."],
         [".setlimit [value]", " -> This one sets a max. message limit for unwanted PMs and when they go beyond it, bamm!."],
         [".allow", " -> Allows a user to PM you."],
         [".deny", " -> Denies a user to PM you."],
