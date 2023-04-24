@@ -70,7 +70,7 @@ rickthon@Debian~ $ screen
 rickthon@Debian~ $ python3 -m Zaid
 ```
 
-## Disclaimer 
+## التنصيب على مسؤليتك 
 
 
 ```console
@@ -87,7 +87,7 @@ and you ended up in a Finale Battle with Telegram and at the end
     I will be rolling on the floor laughing at you.
 ```
 
-``` Credits 💖
+``` المطورين 💖
 - SAIF
 - MOHAMED
 - DRAGON
@@ -95,7 +95,7 @@ and you ended up in a Finale Battle with Telegram and at the end
 - PYROGRAM ⚓️
 ```
 
-## Support / Channel
+## مجموعة المساعده / قناة السورس
 
 <p align="center">𝐒𝐮𝐩𝐩𝐨𝐫𝐭 / 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ----> </p>
 
