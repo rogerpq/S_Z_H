@@ -38,18 +38,23 @@
         "SUDO_USERS": {
             "description": "حط ايدي حسابك",
             "required": true,
-            "value": "1234567890 1234567890"
+            "value": ""
         },
         "OWNER_ID": {
             "description": "حط ايدي حسابك",
             "required": true,
-            "value": "1234567890"
+            "value": ""
         },
         "BOT_TOKEN": {
             "description": "حط توكنك",
             "required": true,
             "value": ""
-        }
+        },
+
+        "TZ": {
+            "description": "حط قارتك و عاصمه دولتك اذا كنت من العراق لاتغير",
+            "required": true,
+            "value": "Asia/Baghdad"
 
     }
   }
