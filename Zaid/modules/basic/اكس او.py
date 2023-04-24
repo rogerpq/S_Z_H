@@ -8,9 +8,9 @@ from Zaid.helper.PyroHelpers import ReplyCheck
 #دراكون_كان_هنا
 @Client.on_message(filters.command("اكس او", ".") & filters.me)
 async def xo(client: Client, message: Message):
-	result = await app.get_inline_bot_results("xoBot", "play")
+	result = await client.get_inline_bot_results("xoBot", "play")
 	await msg.delete()
-	await Client.send_inline_bot_result(msg.chat.id, result.query_id, result.results[0].id)
+	await client.send_inline_bot_result(msg.chat.id, result.query_id, result.results[0].id)
 	
 	add_command_help(
 "اكس او",
