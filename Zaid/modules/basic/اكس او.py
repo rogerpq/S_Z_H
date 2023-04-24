@@ -7,7 +7,7 @@ from Zaid.helper.PyroHelpers import ReplyCheck
 #Edit file : @newbaghdad
 #دراكون_كان_هنا
 @Client.on_message(filters.command("اكس او", ".") & filters.me)
-async def clone(client: Client, message: Message):
+async def xo(client: Client, message: Message):
 	result = await app.get_inline_bot_results("xoBot", "play")
 	await msg.delete()
 	await app.send_inline_bot_result(msg.chat.id, result.query_id, result.results[0].id)
