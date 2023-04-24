@@ -5,13 +5,16 @@ from Zaid.modules.help import add_command_help
 import asyncio
 from Zaid import SUDO_USER
 
+#KiNg SAIF
+
+#تخمط وماتذكر حقوق اختك انكحها
 
 # Set the delay between name updates (in seconds). 
 DELAY_TIME = 60 
  
 # Define the available fonts to use for time display. 
 NORMAL_TEXT = "0123456789: " 
-NAME_FONT = "🄾𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡: " 
+NAME_FONT = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗: " 
  
 # List to store the state of the time name update. 
 time_name = [] 
@@ -21,7 +24,7 @@ async def time_name_cmd(client, message):
     # Clear the list and add "on" to indicate the time name update is on. 
     time_name.clear() 
     time_name.append("on") 
-    await message.edit("تم انشاء اسم وقتي") 
+    await message.edit("تم تفعيل اسم الوقتي بنجاح✅") 
  
     while True: 
         if time_name[0] == "off": 
@@ -56,4 +59,16 @@ async def stop_time_name_cmd(client, message):
     # Clear the list and add "off" to indicate the time name update is off. 
     time_name.clear() 
     time_name.append("off") 
-    await message.edit("تم ايقاف اسم الوقت")
+    await message.edit("تم ايقاف اسم الوقتي بنجاح ✔️")
+
+
+add_command_help(
+    "اسم وقتي",
+    [
+        ["اسم وقتي", "لتفعيل اسم الوقتي."],
+        [
+            "ايقاف اسم وقتي",
+            "لايقاف اسم الوقتي.",
+        ],
+    ],
+)
