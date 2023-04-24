@@ -2,10 +2,10 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.types import Message
 from Zaid.modules.help import add_command_help
-
+#Dragon is the king
 
 @Client.on_message(filters.command("انتحال", ".") & filters.me)
-async def clone(client: Client, message: Message):
+async def say(client, message: Message):
     if len(message.command) == 1:
         return
     command = " ".join(message.command[1:])
