@@ -262,10 +262,7 @@ async def upstream(client: Client, message: Message):
 @Client.on_message(filters.command("goupdate", ".") & filters.me)
 async def updatees(client: Client, message: Message):
     if await is_heroku():
-        if HAPP is None:
-            return await message.edit_text(
-                "Make sure your HEROKU_API_KEY and HEROKU_APP_NAME are configured correctly in heroku config vars",
-            )
+
     response = await message.edit_text("Checking for available updates...")
     try:
         repo = Repo()
