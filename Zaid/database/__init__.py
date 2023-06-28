@@ -1,6 +1,14 @@
-import motor.motor_asyncio
+import redis
+from config import REDIS_URL
 
-from config import MONGO_URL
-cli = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
+redis_client = redis.StrictRedis.from_url(REDIS_URL)
 
-dbb = cli.program
+# لحصول على قيمه
+value = redis_client.get('key_name')
+
+# لتعيين قيمة
+redis_client.set('key_name', 'value')
+
+# لحذف قيمة:
+redis_client.delete('key_name')
+
