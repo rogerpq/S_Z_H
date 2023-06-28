@@ -40,5 +40,5 @@ app = Client(
 
 if STRING_SESSION:
    print("Client1: تم العثور علية.. جار البدء..📳")
-   client1 = Client(name="one", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION1, plugins=dict(root="Zaid/modules"))
+   client1 = Client(name="one", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION, plugins=dict(root="Zaid/modules"))
    clients.append(client1)
