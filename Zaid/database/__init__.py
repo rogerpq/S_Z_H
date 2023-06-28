@@ -12,3 +12,4 @@ redis_client.set('key_name', 'value')
 # لحذف قيمة:
 redis_client.delete('key_name')
 
+db = redis.StrictRedis.from_url(REDIS_URL)
