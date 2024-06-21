@@ -1,0 +1,36 @@
+{
+    "name": "M",
+    "description": "• تنصيب سـورس ريبـــثون مجاناً علـى منصـة سكـالينجـو • افضـل سـورسـات يـوزربـوت العربيـة",
+    "addons": ["scalingo-redis"],
+    "keywords": ["baqir", "ai","telegram"],
+    "repository": "https://github.com/rogerpq/S_Z_H",
+    "logo": "",
+    "stack": "container",
+    "env": {
+        "STRING_SESSION": {
+            "description": "كـــود جلســة تيــرمكــس - الكـود الكبيـر مـن حـافظـة حسـابـك او مـن بــوت〔 @RepthonStringSessionBot 〕..",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "تـــوكـــن البـــوت المســاعـد الخــاص بـك - مـن بـوت فـاذر〔 Botfather@ 〕..",
+            "required": true,
+            "value":""
+        },
+        "API_ID": {
+            "description": "كـود ايبي ايـدي〔 App id 〕اتركـه كمـا هــو",
+            "required": true,
+            "value":"27455984"
+        },
+        "API_HASH": {
+            "description": "كـود ايبي هـاش〔 Api Hash 〕اتركـه كمـا هــو",
+            "required": true,
+            "value":"62d5f68ce2e9189636967120220f5755"
+        },
+        "OWNER_ID": {
+            "description": "لا تغيــرهـــا",
+            "required": true,
+            "value": "5502537272"
+        }
+
+    }
+  }
