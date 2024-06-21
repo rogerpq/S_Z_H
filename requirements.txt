@@ -11,7 +11,7 @@ heroku3
 requests
 motor==3.0.0
 opencv-python-headless
-pyrogram==2.0.56
+pyrogram==2.0.106
 pymongo==4.3.2
 python-dotenv
 pymediainfo
@@ -19,9 +19,8 @@ prettytable
 git+https://github.com/Itz-fork/py-trans.git
 reportlab
 svglib
-redis
 speedtest-cli==2.1.3
 tgcrypto 
 telegraph
 uwuify
-git+https://github.com/redis/redis-py
+git+https://github.com/redis/redis-py.git
